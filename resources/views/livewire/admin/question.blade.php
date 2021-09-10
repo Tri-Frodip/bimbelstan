@@ -126,7 +126,7 @@
             </div>
             <div class="modal-footer">
             <button type="button" class="btn bg-gradient-secondary" data-bs-dismiss="modal">{{ __('Close') }}</button>
-            <button wire:click.prevent='{{ $action }}' class="btn bg-gradient-primary">{{ __('Save changes') }}</button>
+            <button wire:click.prevent='{{ $action }}' class="btn bg-gradient-primary">{{ __('Save Changes') }}</button>
             </div>
         </div>
         </div>

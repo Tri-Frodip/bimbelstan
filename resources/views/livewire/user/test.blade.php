@@ -16,7 +16,9 @@
                                 </span>
                                 <span class="h3">{{ $question->part->name }}</span>
                                 <span class="font-weight-bold">
-                                    {{ __('Time') }} <span class="badge bg-gradient-primary" id="time">{{ $diff }}</span>
+                                    {{ __('Time') }}
+                                    <span class="badge bg-gradient-primary" id="time">{{ $diff }}</span>
+                                    <span class="badge bg-gradient-success" wire:click.prevent='getResult'>{{ __('Done') }}</span>
                                 </span>
                             </p>
                             <h6>{{ $question->question->question }}</h6>
@@ -38,4 +40,18 @@
             </div>
         </div>
     </div>
+    <script>
+        document.addEventListener("livewire:load", function(){
+            setInterval(()=>{
+                var ms = moment('{{$time}}',"YYYY-MM-DD HH:mm:ss").diff(moment());
+                var d = moment.duration(ms);
+                if(d._milliseconds<0){
+                    console.log('selesai');
+                    Livewire.emit('getResult')
+                }
+                var time = d.get("hours").toString().padStart(2, '0') +":"+ d.get("minutes").toString().padStart(2, '0') +":"+ d.get("seconds").toString().padStart(2, '0')
+                $('#time').text(time)
+            },1000)
+        })
+    </script>
 </div>

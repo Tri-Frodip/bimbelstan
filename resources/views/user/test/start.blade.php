@@ -30,12 +30,15 @@
 
 @push('js')
     <script>
-        setInterval(()=>{
-            var ms = moment('{{$time}}',"YYYY-MM-DD HH:mm:ss").diff(moment());
-            var d = moment.duration(ms);
-            console.log(d);
-            var time = d.get("hours").toString().padStart(2, '0') +":"+ d.get("minutes").toString().padStart(2, '0') +":"+ d.get("seconds").toString().padStart(2, '0')
-            $('#time').text(time)
-        },1000)
+        // setInterval(()=>{
+        //     var ms = moment('{{$time}}',"YYYY-MM-DD HH:mm:ss").diff(moment());
+        //     var d = moment.duration(ms);
+        //     if(d._milliseconds<0){
+        //         console.log('selesai');
+        //         Livewire.emitTo('user/test','getResult')
+        //     }
+        //     var time = d.get("hours").toString().padStart(2, '0') +":"+ d.get("minutes").toString().padStart(2, '0') +":"+ d.get("seconds").toString().padStart(2, '0')
+        //     $('#time').text(time)
+        // },1000)
     </script>
 @endpush

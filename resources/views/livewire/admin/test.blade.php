@@ -68,7 +68,7 @@
                             @if (!$part['is_random']&&$part['part_id']!=0)
                                 <div class="btn bg-gradient-primary mb-0" data-toggle="collapse" data-target="#question{{ $loop->iteration }}" class="accordion-toggle"><i class="fas fa-caret-down"></i></div>
                             @else
-                                <input type="number" class="form-control form-control-sm px-3" style="max-width: 150px" {{ $part['is_random']?'':'disabled' }} wire:model='parts.{{ $i }}.total_question' placeholder="{{ __('Total Questions') }}">
+                                <input type="number" class="form-control form-control-sm px-3" style="max-width: 150px" {{ $part['is_random']?'':'disabled' }} wire:model='parts.{{ $i }}.total_question' placeholder="{{ __('Question Total') }}">
                             @endif
                         </div>
                     </div>

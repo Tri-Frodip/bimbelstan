@@ -45,14 +45,14 @@ Route::group(['middleware' => ['auth']], function () {
             ->name('users.delete');
     });
     Route::prefix('/admin')->as('admin.')->middleware('role:admin')->group(function(){
-        Route::resource('question', App\Http\Controllers\QuestionController::class);
-        Route::get('/part', [\App\Http\Controllers\PartController::class,'index'])->name('part.index');
-        Route::resource('/test', App\Http\Controllers\TestController::class);
+        Route::resource('question', App\Http\Controllers\QuestionController::class)->only('index','create','edit');
+        Route::view('/part', 'admin.part.index')->name('part.index');
+        Route::resource('/test', App\Http\Controllers\TestController::class)->except('store','show','update');
     });
 
     Route::group(['prefix'=>'/user','middleware'=>'role:user','as'=>'user.'],function(){
         Route::get('test/result', [App\Http\Controllers\UserTestController::class, 'results'])->name('result');
-        Route::resource('test', App\Http\Controllers\UserTestController::class);
+        Route::resource('test', App\Http\Controllers\UserTestController::class)->only('index','show','update');
         Route::get('start-test', [App\Http\Controllers\UserTestController::class, 'test'])->name('test.start')->middleware('test');
     });
 });

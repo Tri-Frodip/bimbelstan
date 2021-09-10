@@ -32,26 +32,6 @@ class UserTestController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create(Request $request)
-    {
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
      * Display the specified resource.
      *
      * @param  int  $id
@@ -73,16 +53,6 @@ class UserTestController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Request $request, Test $test)
-    {
-    }
-
-    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -99,7 +69,7 @@ class UserTestController extends Controller
             return abort(404);
         $v = Validator::make([], []);
         if($request->token!=$test->token){
-            $v->getMessageBag()->add('token', __('Token is incorrect'));
+            $v->getMessageBag()->add('token', __('Token is incorrect!'));
             return back()->withErrors($v)->withInput();
         }else{
             $encrypt = Crypt::encrypt($test->id);
@@ -126,14 +96,4 @@ class UserTestController extends Controller
         return view('user.test.result', compact('results'));
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }

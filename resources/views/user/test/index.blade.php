@@ -50,7 +50,7 @@
                                     <th>{{ __('Test Name') }}</th>
                                     <th>{{ __('Time') }}</th>
                                     <th>{{ __('Part Count') }}</th>
-                                    <th>{{ __('Total Question') }}</th>
+                                    <th>{{ __('Question Total') }}</th>
                                     <th class="w-1 text-center">{{ __('Action') }}</th>
                                 </tr>
                             </thead>

@@ -57,7 +57,7 @@ class Part extends Component
     public function update(){
         $validated = $this->validate();
         ModelsPart::find($this->part_id)->update($validated);
-        $this->dispatchBrowserEvent("show-toast", ['icon'=>'success','title'=>__('Part has been added')]);$this->dispatchBrowserEvent("show-toast", ['icon'=>'success','title'=>'Part has been edited']);
+        $this->dispatchBrowserEvent("show-toast", ['icon'=>'success','title'=>__('Part has been edited')]);$this->dispatchBrowserEvent("show-toast", ['icon'=>'success','title'=>'Part has been edited']);
         $this->reset('part_id','name','format_validation');
         $this->mount();
     }

@@ -21,6 +21,8 @@ class Test extends Component
     public $no = 1;
     public $answers = [];
 
+    protected $listeners = ['getResult'];
+
     public function mount()
     {
         if(session()->has('answer')){
