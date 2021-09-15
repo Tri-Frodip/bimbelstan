@@ -1,14 +1,14 @@
-@extends('layouts.app')
+@extends('layouts.test')
 
 @section('breadcrumbs')
     <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
         <li class="breadcrumb-item text-sm">
-            <a class="opacity-5 text-dark" href="{{ url('/') }}">
+            <a class="opacity-5 text-dark" href="javascript:void(0)">
                 {{ config('app.name') }}
             </a>
         </li>
         <li class="breadcrumb-item text-sm">
-            <a class="opacity-5 text-dark" href="{{ route('dashboard') }}">
+            <a class="opacity-5 text-dark" href="javascript:void(0)">
                 {{ __('Dashboard') }}
             </a>
         </li>
@@ -27,18 +27,3 @@
 @section('content')
     @livewire('user.test', ['test' => $test,'time'=>$time])
 @endsection
-
-@push('js')
-    <script>
-        // setInterval(()=>{
-        //     var ms = moment('{{$time}}',"YYYY-MM-DD HH:mm:ss").diff(moment());
-        //     var d = moment.duration(ms);
-        //     if(d._milliseconds<0){
-        //         console.log('selesai');
-        //         Livewire.emitTo('user/test','getResult')
-        //     }
-        //     var time = d.get("hours").toString().padStart(2, '0') +":"+ d.get("minutes").toString().padStart(2, '0') +":"+ d.get("seconds").toString().padStart(2, '0')
-        //     $('#time').text(time)
-        // },1000)
-    </script>
-@endpush

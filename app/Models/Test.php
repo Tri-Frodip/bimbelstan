@@ -14,4 +14,14 @@ class Test extends Model
     {
         return $this->hasMany(TestGroup::class);
     }
+
+    public function result()
+    {
+        return $this->hasMany(TestResult::class);
+    }
+
+    public function getMyResult()
+    {
+        return $this->result->where('user_id', auth()->user()->id)->first();
+    }
 }

@@ -1,47 +1,115 @@
 <div>
+    <style>
+        .simple-choice-inner {
+            display: list-item;
+            list-style: lower-alpha inside;
+            position: relative;
+            clear: left;
+        }
+
+        .simple-choice-inner div {
+            display: inline-block;
+        }
+
+        .simple-choice-inner .choiceInput {
+            float: left;
+            margin-right: 10px;
+        }
+        .form-check-input:checked[type="radio"] {
+            margin-left: -2px;
+        }
+        body{
+        -webkit-touch-callout: none; /* iOS Safari */
+            -webkit-user-select: none; /* Safari */
+            -khtml-user-select: none; /* Konqueror HTML */
+            -moz-user-select: none; /* Firefox */
+                -ms-user-select: none; /* Internet Explorer/Edge */
+                    user-select: none; /* Non-prefixed version, currently
+                                        supported by Chrome and Opera */
+        }
+    </style>
     <div class="container py-4">
+        <form action='' method='post' wire:submit.prevent='getResult'>
         <div class="row justify-content-center">
             <div class="col-12 mb-4 text-md-end">
 
             </div>
 
-            <div class="col-12">
-                <div class="card">
+            <div class="col-12 col-md-8 order-md-12">
+                <div class="card mb-3">
                     <div class="card-header">
-                        <form action='' method='post' wire:submit.prevent='getResult'>
+                        <div class="card-title text-center">
+                            <h3>{{ $test->test_name }}</h3>
+                        </div>
                         @foreach ($questions as $i => $question)
                             <p class="d-flex justify-content-between">
-                                <span class="font-weight-bold">
+                                <span class="font-weight-bold w-15">
                                     {{ __('No') }} {{ $questions->currentPage() }}
                                 </span>
-                                <span class="h3">{{ $question->part->name }}</span>
-                                <span class="font-weight-bold">
-                                    {{ __('Time') }}
+                                <span class="h4 text-center">{{ $question->part->name }}</span>
+                                <span class="font-weight-bold text-right">
                                     <span class="badge bg-gradient-primary" id="time">{{ $diff }}</span>
-                                    <span class="badge bg-gradient-success" wire:click.prevent='getResult'>{{ __('Done') }}</span>
+                                    <span class="badge bg-gradient-success" id="done">{{ __('Done') }}</span>
                                 </span>
                             </p>
                             <h6>{{ $question->question->question }}</h6>
-                            <ul style="padding-left: 5px">
-                                @foreach ($question->question->choices as $a => $choice)
-                                    <li style="list-style: none">
-                                        <div class="form-check mb-0">
+                            <div class="choice-interaction">
+                                <span class="prompt">
+                                    @foreach ($question->question->choices as $a => $choice)
+                                    <div class="simple-choice-inner">
+                                        <div class="choiceInput">
                                             <input class="form-check-input" wire:change='saveAnswer' type="radio" value="{{ $choice->id }}" wire:model.defer='answers.{{$question->part->id}}.{{ $questions->currentPage() }}' name="answers[{{$question->part->id}}][{{ $questions->currentPage() }}]" id="choice{{ $i.$a }}">
-                                            <label class="custom-control-label" for="choice{{ $i.$a }}">{{ $choice->text }}</label>
                                         </div>
-                                    </li>
-                                @endforeach
-                            </ul>
+                                        <div class="choice-content">
+                                            <div class="item_options">
+                                                <label for="choice{{ $i.$a }}">{{ $choice->text }}</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    @endforeach
+                                </span>
+                            </div>
                         @endforeach
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-4 order-md-1">
+                <div class="card">
+                    <div class="card-header">
                         {{ $questions->links('livewire.user.pagination') }}
-                        </form>
                     </div>
                 </div>
             </div>
         </div>
+        </form>
     </div>
     <script>
         document.addEventListener("livewire:load", function(){
+            $('#done').on('click', (e)=>{
+                e.preventDefault()
+                Swal.fire({
+                    title: 'Apakah anda yakin ingin mengakhiri ujian?',
+                    text: event.detail.text,
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Ya'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.livewire.emit('getResult')
+                    }
+                })
+            })
+            // Swal.fire({
+            //     title: 'Enable mode fullscreen?',
+            //     showCancelButton: true,
+            // }).then(result=>{
+            //     if(result.isConfirmed){
+            //         if (screenfull.isEnabled)
+            //             screenfull.request();
+            //     }
+            // })
             setInterval(()=>{
                 var ms = moment('{{$time}}',"YYYY-MM-DD HH:mm:ss").diff(moment());
                 var d = moment.duration(ms);

@@ -70,7 +70,7 @@ class UsersController extends Controller
     {
         $action = new UpdateUserProfileInformation;
 
-        $action->update($user, $request->only('name', 'email'));
+        $action->update($user, $request->only('name', 'email', 'phone'));
 
         return redirect()
             ->route('users.index')

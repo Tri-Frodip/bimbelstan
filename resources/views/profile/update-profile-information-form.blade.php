@@ -42,6 +42,19 @@
             </div>
 
             <div class="form-group row">
+                <label class="col-form-label col-md-3">{{ __('Phone') }}</label>
+                <div class="col-md-6">
+                    <input
+                        type="number"
+                        name="phone"
+                        class="form-control @error('phone') is-invalid @enderror"
+                        value="{{ old('phone') ?? auth()->user()->phone }}"
+                        required
+                    />
+                </div>
+            </div>
+
+            <div class="form-group row">
                 <div class="col-md-6 offset-md-3">
                     <button type="submit" class="btn btn-primary">
                         {{ __('Update Profile') }}

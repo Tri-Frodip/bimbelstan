@@ -308,13 +308,13 @@
                         </a>
                     </li>
 
-                    @if (Route::has('register'))
+                    {{-- @if (Route::has('register'))
                         <li class="nav-item">
                             <a href="{{ route('register') }}" class="btn btn-sm btn-round mb-0 ms-2 bg-gradient-primary">
                                 {{ __('Register') }}
                             </a>
                         </li>
-                    @endif
+                    @endif --}}
                 @endif
             </ul>
         </div>

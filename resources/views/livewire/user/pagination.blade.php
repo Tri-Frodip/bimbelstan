@@ -28,7 +28,7 @@
                 {{-- Pagination Elements --}}
                 <div class="row mt-3">
                     @for ($page = 1; $page <= $paginator->lastPage(); $page++)
-                        <div class="col-2">
+                        <div class="col-md-4 col-3">
                             @if ($page == $paginator->currentPage())
                                 <button class="btn w-100 bg-gradient-success" type='button' wire:key="paginator-page-{{ $page }}"><span>{{ $page }}</span></button>
                             @else

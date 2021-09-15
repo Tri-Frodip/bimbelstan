@@ -74,6 +74,7 @@
                                     <tr>
                                         <th>{{ __('Name') }}</th>
                                         <th>{{ __('E-mail') }}</th>
+                                        <th>{{ __('Phone') }}</th>
                                         <th>{{ __('Price') }}</th>
                                         <th class="w-1"></th>
                                     </tr>
@@ -90,6 +91,7 @@
                                                 @endif
                                             </td>
                                             <td class="px-3">{{ $user->email }}</td>
+                                            <td class="px-3">{{ $user->phone }}</td>
                                             <td class="px-3 font-weight-bold">{{ auth()->user()->id === $user->id?'':__(ucfirst($user->price)) }}</td>
                                             <td class="px-3">
                                                 <!-- Example split danger button -->

@@ -18,6 +18,14 @@
     </ol>
 @endsection
 
+@push('css')
+    <style>
+        .hiddenRow {
+            padding: 0 !important;
+        }
+    </style>
+@endpush
+
 @section('title')
     <h6 class="font-weight-bolder mb-0">
         {{ __('Tests') }}
@@ -57,12 +65,41 @@
                             <tbody>
                                 @foreach ($tests as $test)
                                     <tr>
-                                        <td>{{ $test->test_name }}</td>
+                                        <td>
+                                            {{ $test->test_name }}
+                                            @if (in_array($test->id, $result_test))
+                                                <div class="ml-3 badge bg-gradient-danger">{{ __('Disable') }}</div>
+                                            @else
+                                                <div class="ml-3 badge bg-gradient-success">{{ __('Available') }}</div>
+                                            @endif
+                                        </td>
                                         <td>{{ $test->time }} {{ __('Minutes') }}</td>
                                         <td><b>{{ $test->test_group->groupBy('part_id')->count() }}</b> {{ __('Parts') }}</td>
                                         <td><b>{{ $test->test_group->count() }}</b> {{ __('Questions') }}</td>
                                         <td>
-                                            <a href="{{ route('user.test.show', $test->id) }}" class="btn bg-gradient-success">{{ __('Test') }}</a>
+                                            @if (in_array($test->id, $result_test))
+                                                <a data-toggle="collapse" data-target="#result{{ $loop->iteration }}" class="btn mb-0 bg-gradient-info">{{ __('Test Result') }}</a>
+                                            @else
+                                                <a href="{{ route('user.test.show', $test->id) }}" class="btn mb-0 bg-gradient-success">{{ __('Test') }}</a>
+                                            @endif
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="5" class="hiddenRow">
+                                            <div class="accordian-body collapse" id="result{{ $loop->iteration }}">
+                                                <ul class="list-group">
+                                                    @foreach (json_decode($test->getMyResult()->result??'[]', false) as $test_name => $total)
+                                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                        {{ $test_name }}
+                                                        <span class="badge bg-gradient-success">{{ $total }}</span>
+                                                    </li>
+                                                    @endforeach
+                                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                        <span class="font-weight-bold">{{ __('Total') }}</span>
+                                                        <span class="badge bg-gradient-primary">{{ $test->getMyResult()->total??0 }}</span>
+                                                    </li>
+                                                </ul>
+                                            </div>
                                         </td>
                                     </tr>
                                 @endforeach

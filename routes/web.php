@@ -10,7 +10,7 @@ Route::view('/', 'welcome');
 //use middleware verified for user has been verify the email
 Route::group(['middleware' => ['auth']], function () {
 
-    Route::view('dashboard', 'dashboard')
+    Route::get('dashboard', [App\Http\Controllers\HomeController::class,'dashboard'])
         ->name('dashboard');
 
     Route::get('/profile', [\App\Http\Controllers\ProfileController::class, 'show'])

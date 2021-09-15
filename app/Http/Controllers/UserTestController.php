@@ -23,9 +23,9 @@ class UserTestController extends Controller
             if(auth()->user()->price=='regular') $count = 1;
             else if(auth()->user()->price=='premium') $count = 3;
             else $count = 5;
-            $result_test = TestResult::where('user_id', auth()->user()->id)->pluck('test_id');
-            $tests=Test::all()->take($count)->whereNotIn('id', $result_test);
-            return view('user.test.index', compact('tests'));
+            $result_test = TestResult::where('user_id', auth()->user()->id)->pluck('test_id')->toArray();
+            $tests=Test::all()->take($count);
+            return view('user.test.index', compact('tests', 'result_test'));
         }else{
             return redirect()->route('user.test.start');
         }

@@ -20,6 +20,7 @@
 @endsection
 
 @section('content')
+    @can('admin')
     <div class="container py-4">
         <div class="row justify-content-center">
             @if (session('status'))
@@ -30,16 +31,34 @@
                 </div>
             @endif
 
-            <div class="col-12">
+            <div class="col-md-4 col-12">
                 <div class="card">
                     <div class="card-body text-center">
                         <div class="py-5">
                             <p class="lead">
-                                {{ __('You are logged in!') }}
+                                <i class="fas fa-users fa-lg pr-3"></i> {{ __('Users Total') }} {{ $users->count() }}
                             </p>
-
-                            <p>
-                                {{ __('Welcome to your dashboard!') }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-12">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <div class="py-5">
+                            <p class="lead">
+                                <i class="fas fa-cubes fa-lg pr-3"></i> {{ __('Part Count') }} {{ $parts->count() }}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-12">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <div class="py-5">
+                            <p class="lead">
+                                <i class="fas fa-question fa-lg pr-3"></i> {{ __('Question Total') }} {{ $questions->count() }}
                             </p>
                         </div>
                     </div>
@@ -47,4 +66,9 @@
             </div>
         </div>
     </div>
+    @else
+        <div class="w-100">
+            <img src="{{ url('bg-user.jpg') }}" style="max-width: 100%" alt="" srcset="">
+        </div>
+    @endcan
 @endsection
