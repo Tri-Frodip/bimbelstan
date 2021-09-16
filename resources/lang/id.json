@@ -76,6 +76,11 @@
     "Price":"Price/Paket",
     "Phone":"No Telp",
     "Test Result":"Hasil Test",
+    "Dob":"Tanggal Lahir",
+    "Gender":"Jenis Kelamin",
+    "Male":"Laki-laki",
+    "Female":"Perempuan",
+    "Instance":"Instansi",
     "Working Instructions":"Petunjuk Pengerjaan",
     "Next":"Lanjut",
     "Prev":"Kembali"

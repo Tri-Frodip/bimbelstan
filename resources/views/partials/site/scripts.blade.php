@@ -5,4 +5,7 @@
 
 <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
 <script src="{{ asset('vendor/soft-ui/js/soft-design-system.min.js') }}?v=1.0.3"></script>
+
+<!-- Scripts -->
+<script src="{{ asset('js/app.js') }}"></script>
 @stack('js')

@@ -15,6 +15,9 @@ class AddPhoneToUsersTable extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->string('phone', 14)->after('email')->nullable();
+            $table->date('dob')->nullable()->after('phone');
+            $table->enum('gender', ['L','P'])->default('L')->after('dob');
+            $table->string('instance')->nullable()->after('gender');
         });
     }
 
@@ -26,7 +29,7 @@ class AddPhoneToUsersTable extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('phone');
+            $table->dropColumn('phone', 'dob', 'gender', 'instance');
         });
     }
 }

@@ -5,7 +5,7 @@
             @yield('title')
         </nav>
         <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
-            @if (isset($test)&&!$test)
+            @if (!isset($show_navbar))
             <div class="ms-md-auto pe-md-3 d-flex align-items-center">
                 <div class="input-group">
                     <span class="input-group-text text-body">

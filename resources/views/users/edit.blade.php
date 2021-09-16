@@ -89,6 +89,63 @@
                                 </div>
                             </div><!-- /.form-group -->
 
+                            <div class="form-group mb-0">
+                                <label class="col-form-label" for="input-phone">{{ __('Phone') }}</label>
+                                <div>
+                                    <input
+                                        type="number"
+                                        name="phone"
+                                        id="input-phone"
+                                        class="form-control @error('phone') is-invalid @enderror"
+                                        value="{{ old('phone', $user->phone) }}"
+                                        required>
+
+                                    @if ($errors->updateProfileInformation->first('phone'))
+                                        <div class="text-danger">
+                                            {{ $errors->updateProfileInformation->first('phone') }}
+                                        </div>
+                                    @endif
+                                </div>
+                            </div><!-- /.form-group -->
+
+                            <div class="form-group mb-0">
+                                <label class="col-form-label" for="input-dob">{{ __('Dob') }}</label>
+                                <div>
+                                    <input
+                                        type="date"
+                                        name="dob"
+                                        id="input-dob"
+                                        class="form-control @error('dob') is-invalid @enderror"
+                                        value="{{ old('dob', $user->dob) }}"
+                                        required>
+
+                                    @if ($errors->updateProfileInformation->first('dob'))
+                                        <div class="text-danger">
+                                            {{ $errors->updateProfileInformation->first('dob') }}
+                                        </div>
+                                    @endif
+                                </div>
+                            </div><!-- /.form-group -->
+
+                            <div class="form-group mb-0">
+                                <label class="col-form-label" for="input-instance">{{ __('Instance') }}</label>
+                                <div>
+                                    <input
+                                        type="text"
+                                        name="instance"
+                                        id="input-instance"
+                                        class="form-control @error('instance') is-invalid @enderror"
+                                        value="{{ old('instance', $user->instance) }}"
+                                        required>
+
+                                    @if ($errors->updateProfileInformation->first('instance'))
+                                        <div class="text-danger">
+                                            {{ $errors->updateProfileInformation->first('instance') }}
+                                        </div>
+                                    @endif
+                                </div>
+                            </div><!-- /.form-group -->
+
                         </div>
                         <div class="card-footer">
                             <button type="submit" class="btn btn-primary">

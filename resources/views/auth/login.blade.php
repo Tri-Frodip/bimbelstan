@@ -78,7 +78,7 @@
                             @if (Route::has('register'))
                                 <p class="text-sm mt-3 mb-0 text-center">
                                     {{ __('Don\'t have an account?') }}
-                                    <a href="{{ route('register') }}" class="text-dark font-weight-bolder">
+                                    <a href="{{ url('/') }}" class="text-dark font-weight-bolder">
                                         {{ __('Register here.') }}
                                     </a>
                                 </p>

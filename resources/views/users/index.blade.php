@@ -126,45 +126,13 @@
                                                         <li><hr class="dropdown-divider"></li>
                                                             <li>
                                                                 <a href="#"
-                                                                   class="dropdown-item"
-                                                                   data-bs-toggle="modal"
-                                                                   data-bs-target="#modal-delete-user-{{ $user->id }}"
+                                                                   class="dropdown-item deleteUser"
+                                                                   data-userid="{{ $user->id }}"
                                                                 >
                                                                     <span data-bs-toggle="tooltip" title="{{ __('Change Password') }}" class="d-block text-danger">
                                                                         {{ __('Delete User') }}
                                                                     </span>
                                                                 </a>
-
-                                                                <form action="{{ route('users.delete', $user) }}" method="post">
-                                                                    @csrf
-                                                                    @method('delete')
-
-                                                                    <div class="modal" tabindex="-1" id="modal-delete-user-{{ $user->id }}">
-                                                                        <div class="modal-dialog">
-                                                                            <div class="modal-content">
-                                                                                <div class="modal-header">
-                                                                                    <h5 class="modal-title">
-                                                                                        {{ __('Delete User') }}
-                                                                                    </h5>
-                                                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                                                </div>
-                                                                                <div class="modal-body text-center text-danger">
-                                                                                    <i class="fa fa-4x fa-warning"></i>
-
-                                                                                    <p class="mt-4">{{ __('Are you sure you want to delete this user?') }}</p>
-                                                                                </div>
-                                                                                <div class="modal-footer">
-                                                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                                                                                        {{ __('Cancel') }}
-                                                                                    </button>
-                                                                                    <button type="submit" class="btn btn-primary">
-                                                                                        {{ __('Yes, delete the user.') }}
-                                                                                    </button>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </form>
                                                             </li>
                                                         @endif
                                                     </ul>
@@ -190,4 +158,46 @@
             </div>
         </div>
     </div>
+
+    {{-- Modal --}}
+    <form action="" id="form-delete" method="post">
+        @csrf
+        @method('delete')
+
+        <div class="modal" tabindex="-1" id="modal-delete-user">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">
+                            {{ __('Delete User') }}
+                        </h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body text-center text-danger">
+                        <i class="fa fa-4x fa-warning"></i>
+
+                        <p class="mt-4">{{ __('Are you sure you want to delete this user?') }}</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                            {{ __('Cancel') }}
+                        </button>
+                        <button type="submit" class="btn btn-primary">
+                            {{ __('Yes, delete the user.') }}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
 @endsection
+
+@push('js')
+    <script>
+        $(document).on('click','.deleteUser',function(){
+            let id = $(this).data('userid');
+            $('#form-delete').attr('action', `user/${id}/delete`)
+            $('#modal-delete-user').modal('show')
+        })
+    </script>
+@endpush

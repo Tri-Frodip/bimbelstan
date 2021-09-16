@@ -5,7 +5,7 @@
 
 // $soft-background-color: #fbfbfb !default;
 $soft-background-color: #ffffff !default; // Testing
-$font-color:            #67748e !default;
+$font-color:            #282c33 !default;
 $h-color:               #344767 !default;
 
 // Color system
@@ -17,7 +17,7 @@ $gray-300: #dee2e6 !default;
 $gray-400: #ced4da !default;
 $gray-500: #adb5bd !default;
 $gray-600: #6c757d !default;
-$gray-700: #495057 !default;
+$gray-700: #e5e9ec !default;
 $gray-800: #343a40 !default;
 $gray-900: #212529 !default;
 $black:    #000 !default;
@@ -53,7 +53,7 @@ $colors: (
 ) !default;
 // scss-docs-end colors-map
 
-$primary:       #cb0c9f !default;
+$primary:       #82d616 !default;
 $secondary:     #8392AB !default;
 $info:          #17c1e8 !default;
 $success:       #82d616 !default;
@@ -78,8 +78,8 @@ $theme-colors: (
 
 
 // Gradient colors
-$primary-gradient:            #7928CA !default;
-$primary-gradient-state:      #FF0080 !default;
+$primary-gradient:            #17ad37 !default;
+$primary-gradient-state:      #98ec2d !default;
 
 $secondary-gradient:          #627594 !default;
 $secondary-gradient-state:    #A8B8D8 !default;

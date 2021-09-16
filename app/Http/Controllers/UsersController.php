@@ -48,6 +48,29 @@ class UsersController extends Controller
             ->with('status', __('User created!'));
     }
 
+    public function register(Request $request)
+    {
+        $validate = $request->validate([
+            'price'=>'required|in:regular,premium,gold',
+            'name'=>'required|string',
+            'phone'=>'required|numeric|digits_between:9,14',
+            'email'=>'required|email|unique:users,email',
+            'dob'=>'required|date',
+            'gender'=>'required',
+            'instance'=>'required',
+            'password'=>'required|min:6|same:password_confirmation',
+            'password_confirmation'=>'required'
+        ]);
+        $validate['password'] = bcrypt($validate['password']);
+        User::create($validate);
+        $prices = [
+            'regular'=>20000,
+            'premium'=>50000,
+            'gold'=>100000
+        ];
+        return response()->json(['price'=>$prices[$validate['price']]]);
+    }
+
     /**
      * Edit a user
      *
@@ -70,7 +93,7 @@ class UsersController extends Controller
     {
         $action = new UpdateUserProfileInformation;
 
-        $action->update($user, $request->only('name', 'email', 'phone'));
+        $action->update($user, $request->only('name', 'email', 'phone', 'dob','instance'));
 
         return redirect()
             ->route('users.index')

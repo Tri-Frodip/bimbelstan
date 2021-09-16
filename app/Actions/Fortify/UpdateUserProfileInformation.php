@@ -28,7 +28,9 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
                 'max:255',
                 Rule::unique('users')->ignore($user->id),
             ],
-            // 'phone' => ['numeric','digits:9,14']
+            'phone' => ['required','numeric','digits_between:9,14'],
+            'dob' => ['required','date'],
+            'instance' => ['required']
         ])->validateWithBag('updateProfileInformation');
 
         if ($input['email'] !== $user->email &&
@@ -38,6 +40,8 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
             $user->forceFill([
                 'name' => $input['name'],
                 'phone' => $input['phone'],
+                'dob' => $input['dob'],
+                'instance' => $input['instance'],
                 'email' => $input['email'],
             ])->save();
         }

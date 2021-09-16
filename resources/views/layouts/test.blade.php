@@ -22,7 +22,7 @@
     <body class="g-sidenav-show bg-gray-100">
 
         <main class="main-content position-relative max-height-vh-100 h-100 mt-1 border-radius-lg">
-            @include('partials.dashboard.navbar', ['test'=>true])
+            @include('partials.dashboard.navbar', ['show_navbar'=>true])
 
             <div id="app">
                 @yield('content')
