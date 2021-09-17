@@ -16126,3 +16126,8 @@ h3 {
     border-color: #dee2e6;
   }
 }
+
+.input-group > :not(:first-child):not(.dropdown-menu):not(.valid-tooltip):not(.valid-feedback):not(.invalid-tooltip):not(.invalid-feedback){
+    padding-top: 8px;
+    padding-bottom: 8px;
+}

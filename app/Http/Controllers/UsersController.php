@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\Actions\Fortify\ChangeUserPassword;
 use App\Actions\Fortify\CreateNewUser;
 use App\Actions\Fortify\UpdateUserProfileInformation;
+use App\Exports\UsersExport;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class UsersController extends Controller
 {
@@ -127,6 +129,12 @@ class UsersController extends Controller
         return redirect()
             ->route('users.index')
             ->with('status', __('User password updated!'));
+    }
+
+    public function export()
+    {
+        $nama_file = 'laporan_users_'.date('Y-m-d_H-i-s').'.xlsx';
+        return Excel::download(new UsersExport, $nama_file);
     }
 
     /**

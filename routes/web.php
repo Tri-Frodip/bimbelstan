@@ -43,6 +43,11 @@ Route::group(['middleware' => ['auth']], function () {
 
         Route::delete('/user/{user}/delete', [\App\Http\Controllers\UsersController::class, 'delete'])
             ->name('users.delete');
+
+        Route::get('/users/results', [App\Http\Controllers\UserTestController::class, 'test_results'])->name('user-test.result');
+        Route::get('/users/results/{user}', [App\Http\Controllers\UserTestController::class, 'export_pdf'])->name('user-test.export_pdf');
+
+        Route::get('export-users', [App\Http\Controllers\UsersController::class, 'export']);
     });
     Route::prefix('/admin')->as('admin.')->middleware('role:admin')->group(function(){
         Route::resource('question', App\Http\Controllers\QuestionController::class)->only('index','create','edit');

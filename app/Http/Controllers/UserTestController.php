@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Test;
 use App\Models\TestResult;
+use App\Models\User;
+use PDF;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
@@ -88,6 +90,18 @@ class UserTestController extends Controller
         $time = Crypt::decrypt(session('time'));
         $test = Test::find($test_id);
         return view('user.test.start', compact('test','time'));
+    }
+
+    public function export_pdf(User $user)
+    {
+        $pdf = PDF::loadView('pdf.test-result', compact('user'));
+        return $pdf->stream($user->name.' ('.(date('d-m-Y-H_i_s')).').pdf');
+    }
+
+    public function test_results()
+    {
+        $results = User::where('role','user')->get();
+        return view('admin.results.index', compact('results'));
     }
 
     public function results()
