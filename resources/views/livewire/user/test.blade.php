@@ -13,10 +13,10 @@
 
         .simple-choice-inner .choiceInput {
             float: left;
-            margin-right: 10px;
+            margin-right: -15px;
         }
         .form-check-input:checked[type="radio"] {
-            margin-left: -2px;
+            /* margin-left: -2px; */
         }
         body{
         -webkit-touch-callout: none; /* iOS Safari */
@@ -31,23 +31,24 @@
     <div class="container py-4">
         <form action='' method='post' wire:submit.prevent='getResult'>
         <div class="row justify-content-center">
-            <div class="col-12 mb-4 text-md-end">
+            <div class="col-12 mb-4 text-lg-end">
 
             </div>
 
-            <div class="col-12 col-md-8 order-md-12">
+            <div class="col-12 col-lg-8 order-lg-12">
                 <div class="card mb-3">
                     <div class="card-header">
                         <div class="card-title text-center">
-                            <h3>{{ $test->test_name }}</h3>
+                            <span class='d-1'>{{ $test->test_name }}</span>
                         </div>
                         @foreach ($questions as $i => $question)
+                            <span class="h4 text-center d-block d-lg-none">{{ $question->part->name }}</span>
                             <p class="d-flex justify-content-between">
                                 <span class="font-weight-bold w-15">
                                     {{ __('No') }} {{ $questions->currentPage() }}
                                 </span>
-                                <span class="h4 text-center">{{ $question->part->name }}</span>
-                                <span class="font-weight-bold text-right">
+                                <span class="h4 text-center d-none d-lg-block">{{ $question->part->name }}</span>
+                                <span class="font-weight-bold justify-content-between">
                                     <span class="badge bg-gradient-primary" id="time">{{ $diff }}</span>
                                     <span class="badge bg-gradient-success" id="done">{{ __('Done') }}</span>
                                 </span>
@@ -73,7 +74,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-md-4 order-md-1">
+            <div class="col-12 col-lg-4 order-lg-1">
                 <div class="card">
                     <div class="card-header">
                         {{ $questions->links('livewire.user.pagination') }}

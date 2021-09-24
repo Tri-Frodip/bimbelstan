@@ -105,7 +105,7 @@
                             <div class="input-group">
                                 <input type="text" class="form-control col-9 @error($inputChoice) is-invalid @enderror" placeholder="{{ __('Choice') }} - {{ $loop->iteration }}" wire:model.defer="{{ $inputChoice }}" name="choices[{{ $i }}]['text']">
                                 @if ($part->format_validation=='normal')
-                                <div class="input-group-text" style="border-top-right-radius: .5rem;border-bottom-right-radius: .5rem;">
+                                <div class="input-group-text py-0" style="border-top-right-radius: .5rem;border-bottom-right-radius: .5rem;">
                                     <div class="form-check mb-0">
                                         <input class="form-check-input @error($inputChoice) is-invalid @enderror" type="radio" value="{{ $i }}" wire:model.defer='is_correct' name="is_correct" id="customRadio{{ $i }}">
                                         <label class="custom-control-label mb-0" for="customRadio{{ $i }}">{{ __('Correct?') }}</label>

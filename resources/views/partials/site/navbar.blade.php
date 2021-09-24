@@ -17,9 +17,9 @@
                 <span class="navbar-toggler-bar bar3"></span>
               </span>
         </button>
-        <div class="navbar-collapse w-100 pt-3 pb-2 py-lg-0 collapse show" id="navigation">
+        <div class="navbar-collapse w-100 pt-3 pb-2 py-lg-0 collapse" id="navigation">
             <ul class="navbar-nav navbar-nav-hover ms-auto">
-                <li class="nav-item dropdown dropdown-hover mx-2">
+                {{-- <li class="nav-item dropdown dropdown-hover mx-2">
                     <a role="button" class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center " id="dropdownMenuDocs" data-bs-toggle="dropdown" aria-expanded="false">
                         Docs
                         <img src="{{ asset('vendor/soft-ui/img/down-arrow.svg') }}" alt="down-arrow" class="arrow ms-1 d-lg-block d-none">
@@ -283,7 +283,7 @@
                             </div>
                         </div>
                     </div>
-                </li>
+                </li> --}}
 
                 @auth
                     <li class="nav-item">

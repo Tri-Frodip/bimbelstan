@@ -4,16 +4,8 @@
     <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
         <li class="breadcrumb-item text-sm">
             <a class="opacity-5 text-dark" href="{{ url('/') }}">
-                {{ config('app.name') }}
+                <img src="/logo-no-bg.png" style="max-width: 100px" alt="" srcset="">
             </a>
-        </li>
-        <li class="breadcrumb-item text-sm">
-            <a class="opacity-5 text-dark" href="{{ route('dashboard') }}">
-                {{ __('Dashboard') }}
-            </a>
-        </li>
-        <li class="breadcrumb-item text-sm text-dark active" aria-current="page">
-            {{ __('Tests') }}
         </li>
     </ol>
 @endsection
@@ -51,7 +43,7 @@
                         <div class="col text-md-end">
                             <div>
                                 <a href="{{ url('export-users') }}" class="btn bg-gradient-success" role="button">
-                                    <i class="fas fa-file-excel pr-2"></i> {{ __('Export') }}
+                                    <i class="fas fa-file-excel mr-3 text-white"></i> {{ __('Export') }}
                                 </a>
                             </div>
                         </div>
@@ -73,7 +65,10 @@
                                 @foreach ($results as $user)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $user->name }}</td>
+                                        <td>
+                                            {{ $user->name }}
+                                            {!! $user->getStatus() !!}
+                                        </td>
                                         <td>{{ $user->phone }}</td>
                                         <td>{{ $user->email }}</td>
                                         <td>{{ $user->dob }}</td>
@@ -84,6 +79,14 @@
                                                     <i class="fas fa-cogs"></i>
                                                 </button>
                                                 <ul class="dropdown-menu shadow-sm">
+                                                    <li>
+                                                        <form action="/admin/reset-test/{{ $user->id }}" method="post">
+                                                            @csrf @method('delete')
+                                                            <button class="dropdown-item" data-bs-toggle="collapse" href="" role="button" aria-expanded="false" aria-controls="collapse{{ $loop->iteration }}">
+                                                                <i class="fas fa-trash-restore-alt pr-2"></i> {{ __('Reset Test') }}
+                                                            </button>
+                                                        </form>
+                                                    </li>
                                                     <li>
                                                         <a class="dropdown-item" data-bs-toggle="collapse" href="#collapse{{ $loop->iteration }}" role="button" aria-expanded="false" aria-controls="collapse{{ $loop->iteration }}">
                                                             <i class="fas fa-info-circle pr-2"></i> {{ __('Detail') }}

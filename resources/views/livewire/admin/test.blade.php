@@ -31,8 +31,8 @@
                         <div class="input-group">
                             <input type="text" class="form-control @error('token') is-invalid @enderror" name="token" wire:model='token'>
                             <button type="button" class="btn bg-gradient-info mb-0" style="border-top-right-radius: .5rem;border-bottom-right-radius: .5rem;" wire:click.prevent='generateToken'>
-                                <span class="d-none d-md-block"><i class="fas fa-lg fa-random"></i> {{ __('Generate') }}</span>
-                                <span class="d-block d-md-none"><i class="fas fa-lg fa-random"></i></span>
+                                <span class="d-none d-md-block text-white"><i class="fas fa-lg fa-random text-white"></i> {{ __('Generate') }}</span>
+                                <span class="d-block d-md-none"><i class="fas fa-lg fa-random text-white"></i></span>
                             </button>
                             @error('token')
                                 <div class="invalid-feedback">{{ $message }}</div>

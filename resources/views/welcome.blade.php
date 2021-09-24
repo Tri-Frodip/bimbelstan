@@ -7,7 +7,7 @@
                 <div class="row">
                     <div class="col-lg-7 text-center mx-auto">
                         <div>
-                            <img src="{{ asset('vendor/soft-ui/img/fortify-soft-ui.png') }}" class="w-30 py-3" alt="{{ __('FortifySoftUi') }}">
+                            <img src="{{ asset('logo-no-bg.png') }}" class="w-30 py-3" alt="{{ __('FortifySoftUi') }}">
                         </div>
                         <h1 class="text-white pt-5 mt-n5">
                             {{ __('Web Ujian CPNS') }}

@@ -4,10 +4,10 @@
     <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
         <li class="breadcrumb-item text-sm">
             <a class="opacity-5 text-dark" href="{{ url('/') }}">
-                {{ config('app.name') }}
+                <img src="/logo-no-bg.png" style="max-width: 100px" alt="" srcset="">
             </a>
         </li>
-        <li class="breadcrumb-item text-sm text-dark active" aria-current="page">
+        <li class="breadcrumb-item text-sm text-dark active my-auto" aria-current="page">
             {{ __('Dashboard') }}
         </li>
     </ol>
@@ -32,9 +32,9 @@
             @endif
 
             <div class="col-md-4 col-12">
-                <div class="card">
+                <div class="card border-primary mb-2" style="border-left: 3px solid; height: 140px;">
                     <div class="card-body text-center">
-                        <div class="py-5">
+                        <div class="pt-4">
                             <p class="lead">
                                 <i class="fas fa-users fa-lg pr-3"></i> {{ __('Users Total') }} {{ $users->count() }}
                             </p>
@@ -43,9 +43,9 @@
                 </div>
             </div>
             <div class="col-md-4 col-12">
-                <div class="card">
+                <div class="card border-primary mb-2" style="border-left: 3px solid; height: 140px;">
                     <div class="card-body text-center">
-                        <div class="py-5">
+                        <div class="pt-4">
                             <p class="lead">
                                 <i class="fas fa-cubes fa-lg pr-3"></i> {{ __('Part Count') }} {{ $parts->count() }}
                             </p>
@@ -54,9 +54,9 @@
                 </div>
             </div>
             <div class="col-md-4 col-12">
-                <div class="card">
+                <div class="card border-primary mb-2" style="border-left: 3px solid; height: 140px;">
                     <div class="card-body text-center">
-                        <div class="py-5">
+                        <div class="pt-4">
                             <p class="lead">
                                 <i class="fas fa-question fa-lg pr-3"></i> {{ __('Question Total') }} {{ $questions->count() }}
                             </p>

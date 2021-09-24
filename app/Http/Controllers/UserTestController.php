@@ -22,9 +22,9 @@ class UserTestController extends Controller
     public function index()
     {
         if(!Gate::allows('test')){
-            if(auth()->user()->price=='regular') $count = 1;
-            else if(auth()->user()->price=='premium') $count = 3;
-            else $count = 5;
+            if(auth()->user()->price=='regular') $count = 2;
+            else if(auth()->user()->price=='premium') $count = 4;
+            else $count = 6;
             $result_test = TestResult::where('user_id', auth()->user()->id)->pluck('test_id')->toArray();
             $tests=Test::all()->take($count);
             return view('user.test.index', compact('tests', 'result_test'));
@@ -42,9 +42,9 @@ class UserTestController extends Controller
     public function show(Test $test)
     {
         if(!Gate::allows('test')){
-            if(auth()->user()->price=='regular') $count = 1;
-            else if(auth()->user()->price=='premium') $count = 3;
-            else $count = 5;
+            if(auth()->user()->price=='regular') $count = 2;
+            else if(auth()->user()->price=='premium') $count = 4;
+            else $count = 6;
             $result_test = TestResult::where('user_id', auth()->user()->id)->pluck('test_id');
             $tests=Test::all()->take($count)->whereNotIn('id', $result_test)->pluck('id');
             if(!in_array($test->id, $tests->toArray())) return abort(404);
@@ -63,9 +63,9 @@ class UserTestController extends Controller
      */
     public function update(Request $request, Test $test)
     {
-        if(auth()->user()->price=='regular') $count = 1;
-        else if(auth()->user()->price=='regular') $count = 3;
-        else $count = 5;
+        if(auth()->user()->price=='regular') $count = 2;
+        else if(auth()->user()->price=='premium') $count = 4;
+        else $count = 6;
         $tests=Test::all()->take($count)->pluck('id');
         if(!in_array($test->id, $tests->toArray()))
             return abort(404);
@@ -108,6 +108,12 @@ class UserTestController extends Controller
     {
         $results = TestResult::where('user_id', auth()->user()->id)->get();
         return view('user.test.result', compact('results'));
+    }
+
+    public function reset(User $user)
+    {
+        $user->test_results()->delete();
+        return back()->with('status', __('Result Test reseted succesfully'));
     }
 
 }

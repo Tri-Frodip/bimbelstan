@@ -57,7 +57,7 @@
                                     aria-describedby="password-addon">
                             </div>
 
-                            <div class="form-check form-check-info text-left">
+                            <div class="form-check form-check-info text-left mb-3">
                                 <input
                                     type="checkbox"
                                     name="remember"

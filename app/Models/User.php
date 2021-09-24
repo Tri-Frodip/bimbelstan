@@ -48,6 +48,16 @@ class User extends Authenticatable implements MustVerifyEmail
         'email_verified_at' => 'datetime',
     ];
 
+    public function getStatus()
+    {
+        $prices = ['regular'=>2,'premium'=>4,'gold'=>6];
+        if($this->test_results->count()>$prices[$this->price]){
+            return '<span class="badge bg-gradient-success">Finish</span>';
+        }else{
+            return '<span class="badge bg-gradient-info">On Going</span>';
+        }
+    }
+
     public function test_results()
     {
         return $this->hasMany(TestResult::class);

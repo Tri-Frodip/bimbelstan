@@ -21,5 +21,4 @@
 <!-- CSS Files -->
 <link id="pagestyle" href="{{ asset('vendor/soft-ui/css/soft-design-system.css') }}?v=1.0.5" rel="stylesheet" />
 
-
 @stack('css')

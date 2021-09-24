@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -10,7 +11,7 @@ Route::view('/', 'welcome');
 //use middleware verified for user has been verify the email
 Route::group(['middleware' => ['auth']], function () {
 
-    Route::get('dashboard', [App\Http\Controllers\HomeController::class,'dashboard'])
+    Route::get('dashboard', [\App\Http\Controllers\HomeController::class,'dashboard'])
         ->name('dashboard');
 
     Route::get('/profile', [\App\Http\Controllers\ProfileController::class, 'show'])
@@ -44,20 +45,21 @@ Route::group(['middleware' => ['auth']], function () {
         Route::delete('/user/{user}/delete', [\App\Http\Controllers\UsersController::class, 'delete'])
             ->name('users.delete');
 
-        Route::get('/users/results', [App\Http\Controllers\UserTestController::class, 'test_results'])->name('user-test.result');
-        Route::get('/users/results/{user}', [App\Http\Controllers\UserTestController::class, 'export_pdf'])->name('user-test.export_pdf');
+        Route::get('/users/results', [\App\Http\Controllers\UserTestController::class, 'test_results'])->name('user-test.result');
+        Route::get('/users/results/{user}', [\App\Http\Controllers\UserTestController::class, 'export_pdf'])->name('user-test.export_pdf');
 
-        Route::get('export-users', [App\Http\Controllers\UsersController::class, 'export']);
+        Route::get('export-users', [\App\Http\Controllers\UsersController::class, 'export']);
     });
     Route::prefix('/admin')->as('admin.')->middleware('role:admin')->group(function(){
-        Route::resource('question', App\Http\Controllers\QuestionController::class)->only('index','create','edit');
+        Route::resource('question', \App\Http\Controllers\QuestionController::class)->only('index','create','edit');
         Route::view('/part', 'admin.part.index')->name('part.index');
-        Route::resource('/test', App\Http\Controllers\TestController::class)->except('store','show','update');
+        Route::resource('/test', \App\Http\Controllers\TestController::class)->except('store','show','update');
+        Route::delete('reset-test/{user}', [\App\Http\Controllers\UserTestController::class, 'reset']);
     });
 
     Route::group(['prefix'=>'/user','middleware'=>'role:user','as'=>'user.'],function(){
-        Route::get('test/result', [App\Http\Controllers\UserTestController::class, 'results'])->name('result');
-        Route::resource('test', App\Http\Controllers\UserTestController::class)->only('index','show','update');
-        Route::get('start-test', [App\Http\Controllers\UserTestController::class, 'test'])->name('test.start')->middleware('test');
+        Route::get('test/result', [\App\Http\Controllers\UserTestController::class, 'results'])->name('result');
+        Route::resource('test', \App\Http\Controllers\UserTestController::class)->only('index','show','update');
+        Route::get('start-test', [\App\Http\Controllers\UserTestController::class, 'test'])->name('test.start')->middleware('test');
     });
 });
