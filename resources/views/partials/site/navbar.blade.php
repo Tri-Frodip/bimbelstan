@@ -12,30 +12,30 @@
             aria-expanded="false"
             aria-label="{{ __('Toggle navigation') }}">
               <span class="navbar-toggler-icon mt-2">
-                <span class="navbar-toggler-bar bar1"></span>
-                <span class="navbar-toggler-bar bar2"></span>
-                <span class="navbar-toggler-bar bar3"></span>
+                <span class="navbar-toggler-bar bg-dark bar1"></span>
+                <span class="navbar-toggler-bar bg-dark bar2"></span>
+                <span class="navbar-toggler-bar bg-dark bar3"></span>
               </span>
         </button>
         <div class="navbar-collapse w-100 pt-3 pb-2 py-lg-0 collapse" id="navigation">
             <ul class="navbar-nav navbar-nav-hover ms-auto">
                 <li class="nav-item mx-2">
-                    <a href="/" class="nav-link text-secondary ps-2 d-flex justify-content-between cursor-pointer align-items-center" id="dropdownMenuDocs">
+                    <a href="/" class="nav-link text-dark ps-2 d-flex justify-content-between cursor-pointer align-items-center" id="dropdownMenuDocs">
                         Beranda
                     </a>
                 </li>
                 <li class="nav-item mx-2">
-                    <a href="/try-out" class="nav-link text-secondary ps-2 d-flex justify-content-between cursor-pointer align-items-center" id="dropdownMenuDocs">
+                    <a href="/try-out" class="nav-link text-dark ps-2 d-flex justify-content-between cursor-pointer align-items-center" id="dropdownMenuDocs">
                         Try Out
                     </a>
                 </li>
                 <li class="nav-item mx-2">
-                    <a href="/paket-bimbel" class="nav-link text-secondary ps-2 d-flex justify-content-between cursor-pointer align-items-center" id="dropdownMenuDocs">
+                    <a href="#program-bimbel" class="nav-link text-dark ps-2 d-flex justify-content-between cursor-pointer align-items-center" id="dropdownMenuDocs">
                         Paket Bimbel
                     </a>
                 </li>
                 <li class="nav-item mx-2">
-                    <a href="/kontak-kami" class="nav-link text-secondary ps-2 d-flex justify-content-between cursor-pointer align-items-center" id="dropdownMenuDocs">
+                    <a href="/kontak-kami" class="nav-link text-dark ps-2 d-flex justify-content-between cursor-pointer align-items-center" id="dropdownMenuDocs">
                         Kontak Kami
                     </a>
                 </li>

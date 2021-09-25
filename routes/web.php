@@ -8,6 +8,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'welcome');
 Route::view('/try-out', 'try-out');
+Route::get('/paket-bimbel/{price}', [\App\Http\Controllers\HomeController::class, 'bimbel']);
+Route::post('/paket-bimbel/{price}', [\App\Http\Controllers\HomeController::class, 'register_bimbel']);
+Route::view('/kontak-kami', 'about-us');
 
 //use middleware verified for user has been verify the email
 Route::group(['middleware' => ['auth']], function () {

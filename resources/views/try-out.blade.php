@@ -3,11 +3,11 @@
 ])
 
 @section('content')
-<header class="header-2 mt-6 mt-md-4">
-    <div class="page-header min-vh-100 relative">
+<header class="header-2">
+    <div class="page-header pt-6 pb-0 pt-md-4 bg-light min-vh-100">
         <div class="container">
-            <h3 class="my-6 text-center">Program Try Out</h3>
-            <div class="row">
+            <h3 class="my-3 pt-6 text-center">Program Try Out</h3>
+            <div class="row pb-0">
                 <div class="col-12 col-md-4 mb-3">
                     <div class="card shadow">
                         <div class="card-header text-center pb-0">
@@ -65,7 +65,7 @@
         </div>
     </div>
 </header>
-
+<svg xmlns="http://www.w3.org/2000/svg" class="bg-light" viewBox="0 0 1440 319"><path fill="#34349b" fill-opacity="1" d="M0,288L48,272C96,256,192,224,288,197.3C384,171,480,149,576,165.3C672,181,768,235,864,250.7C960,267,1056,245,1152,250.7C1248,256,1344,288,1392,304L1440,320L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
 {{-- Modal --}}
 <div class="modal fade" id="modal-form" tabindex="-1" role="dialog" aria-labelledby="modal-form" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
@@ -101,7 +101,7 @@
                 </div>
                 <div class="form-group">
                     <label>{{ __('Gender') }}</label>
-                    <select name="gender" class="custom-select">
+                    <select name="gender" class="form-control">
                         <option value=""></option>
                         <option value="L">{{ __('Male') }}</option>
                         <option value="P">{{ __('Female') }}</option>
@@ -157,6 +157,7 @@
 
 @push('js')
     <script>
+        $('*[href="#program-bimbel"]').attr('href', '/#program-bimbel')
         String.prototype.capitalize = function() {
             return this.charAt(0).toUpperCase() + this.slice(1);
         }

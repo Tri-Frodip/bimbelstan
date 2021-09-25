@@ -1,4 +1,4 @@
-<footer class="footer py-5" style="background: rgb(52, 52, 155);">
+<footer class="footer pb-5 {{ $footer??'' }}" style="background: rgb(52, 52, 155);">
     <div class="container">
         <h3 class="text-center text-white">Sosial Media</h3>
         <div class="row">

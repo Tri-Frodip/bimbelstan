@@ -16,6 +16,8 @@ const Toast = Swal.mixin({
     }
 })
 
+window.Toast = Toast;
+
 window.addEventListener('confirm-dialog', function(event){
     Swal.fire({
         title: event.detail.title,
