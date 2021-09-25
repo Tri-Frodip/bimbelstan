@@ -1,19 +1,16 @@
 @extends('layouts.auth')
 
-@section('heading', 'Welcome!')
+@section('heading', 'Login')
 @section('sub-heading', 'Use these awesome forms to login to your account.')
 @section('header-bg', asset('vendor/soft-ui/img/curved-images/curved1.jpg'))
 
 @section('content')
     <div class="container">
         <div class="row mt-lg-n10 mt-md-n11 mt-n10">
-            <div class="col-xl-4 col-lg-5 col-md-7 mx-auto">
-                <div class="card z-index-0">
-                    <div class="card-header text-center pt-4 pb-0">
-                        <h5>{{ __('Login To Your Account') }}</h5>
-                    </div>
-
+            <div class="col-xl-5 col-lg-5 col-md-7 mx-auto">
+                <div class="card p-xl-3 z-index-0">
                     <div class="card-body">
+                        <h6 class="text-center mb-3">{{ __('Login To Your Account') }}</h6>
                         @if (session('status'))
                             <div class="alert alert-info text-white text-sm text-center mb-4">
                                 {{ session('status') }}

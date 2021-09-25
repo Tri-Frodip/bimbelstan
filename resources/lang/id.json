@@ -2,7 +2,7 @@
     "Login":"Masuk",
     "Register":"Daftar",
     "Logout":"Keluar",
-    "Login To Your Account":"Masuk Ke Akunmu",
+    "Login To Your Account":"Masuk untuk mengakses fasilitas bimbel",
     "Remember Me":"Ingat Saya",
     "Password":"Kata Sandi",
     "Part":"Assesment",
@@ -82,6 +82,9 @@
     "Female":"Perempuan",
     "Instance":"Instansi",
     "Working Instructions":"Petunjuk Pengerjaan",
+    "Don't have an account?":"Belum punya akun?",
+    "Register here.":"Daftar Sekarang",
+    "Forgot your password?":"Lupa Password",
     "Next":"Lanjut",
     "Prev":"Kembali"
 }

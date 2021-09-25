@@ -2,23 +2,23 @@
 
 @section('content')
     <header class="header-2">
-        <div class="page-header min-vh-75 relative" style="background-image: url('{{ asset('vendor/soft-ui/img/curved-images/curved.jpg') }}')">
+        <div class="page-header min-vh-100 relative" style="background-image: url('{{ asset('vendor/soft-ui/img/curved-images/white-curved.jpeg') }}')">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-7 text-center mx-auto">
                         <div>
                             <img src="{{ asset('logo-no-bg.png') }}" class="w-30 py-3" alt="{{ __('FortifySoftUi') }}">
                         </div>
-                        <h1 class="text-white pt-5 mt-n5">
+                        <h1 class="text-secondary pt-5 mt-n5">
                             {{ __('Web Ujian CPNS') }}
                         </h1>
-                        <p class="lead text-white mt-3">
+                        <p class="lead text-secondary mt-3">
                             {{ __('The power or Laravel and the beauty of Soft UI theme.') }}
                         </p>
                     </div>
                 </div>
             </div>
-            <div class="position-absolute w-100 z-index-1 bottom-0">
+            <div class="position-absolute w-100 z-index-1 bottom-0 bg-transparent">
                 <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 40" preserveAspectRatio="none" shape-rendering="auto">
                     <defs>
                         <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
@@ -35,189 +35,169 @@
             </div>
         </div>
     </header>
-    <div class="container" style="margin-top: 30px;">
-        <div class="row">
-            <div class="col-12 col-md-4 mb-3">
-                <div class="card">
-                    <div class="card-header pb-0">
-                        <h3 class="card-title">{{ __('Regular') }}</h3>
-                    </div>
-                    <div class="card-body pt-0">
-                        <ul>
-                            <li>Gatau</li>
-                            <li>Bebas</li>
-                        </ul>
-                        <button class="btn bg-gradient-success price" data-price="regular">Submit</button>
-                    </div>
+    <section id="profile" class="pt-6 bg-white">
+        <div class="container mt-6 text-center">
+            <h3 class="mb-0">Profil Kami</h3>
+            <img src="{{ asset('logo-no-bg.png') }}" height="130" alt="" class="align-center">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam blanditiis doloribus veritatis ducimus fuga iure ipsa nesciunt quia voluptas voluptates dolores nemo ea voluptate ut nihil, eum quae porro veniam. Ipsa fuga mollitia aspernatur consequuntur quod. Quam amet laborum ab adipisci, fugiat atque sed accusamus eligendi soluta cupiditate iusto ea commodi! Quos eligendi consequuntur ratione quisquam, odit nisi necessitatibus odio facere voluptatem minima possimus amet suscipit quae mollitia vel soluta autem sequi consectetur excepturi non dolore molestiae pariatur assumenda! Praesentium optio reprehenderit repellendus sequi amet, cum rerum! Reiciendis harum sunt iusto nemo officia blanditiis eligendi voluptate voluptatum esse laboriosam. Architecto!</p>
+        </div>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 319"><path fill="rgb(161, 194, 255)" fill-opacity="1" d="M0,288L48,272C96,256,192,224,288,197.3C384,171,480,149,576,165.3C672,181,768,235,864,250.7C960,267,1056,245,1152,250.7C1248,256,1344,288,1392,304L1440,320L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
+    </section>
+    <section id="keunggulan" class="py-6" style="background: rgb(161, 194, 255)">
+        <div class="container">
+            <h3 class="text-center mb-6">Keunggulan Tri Frodip</h3>
+            <div class="row">
+                <div class="col-md-3 col-12 text-center">
+                    <img src="{{ asset('logo.png') }}" height="60" width="60" style="border-radius: 50%" alt="" srcset="">
+                    <h5 class="my-4">Keunggulan 1</h5>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit eum a iusto hic ea vitae nesciunt optio at esse! Unde voluptatem minima quos quibusdam sint adipisci. Fugiat, excepturi! Sapiente, fugit.</p>
+                </div>
+                <div class="col-md-3 col-12 text-center">
+                    <img src="{{ asset('logo.png') }}" height="60" width="60" style="border-radius: 50%" alt="" srcset="">
+                    <h5 class="my-4">Keunggulan 2</h5>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit eum a iusto hic ea vitae nesciunt optio at esse! Unde voluptatem minima quos quibusdam sint adipisci. Fugiat, excepturi! Sapiente, fugit.</p>
+                </div>
+                <div class="col-md-3 col-12 text-center">
+                    <img src="{{ asset('logo.png') }}" height="60" width="60" style="border-radius: 50%" alt="" srcset="">
+                    <h5 class="my-4">Keunggulan 3</h5>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit eum a iusto hic ea vitae nesciunt optio at esse! Unde voluptatem minima quos quibusdam sint adipisci. Fugiat, excepturi! Sapiente, fugit.</p>
+                </div>
+                <div class="col-md-3 col-12 text-center">
+                    <img src="{{ asset('logo.png') }}" height="60" width="60" style="border-radius: 50%" alt="" srcset="">
+                    <h5 class="my-4">Keunggulan 4</h5>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit eum a iusto hic ea vitae nesciunt optio at esse! Unde voluptatem minima quos quibusdam sint adipisci. Fugiat, excepturi! Sapiente, fugit.</p>
                 </div>
             </div>
-            <div class="col-12 col-md-4 mb-3">
-                <div class="card">
-                    <div class="card-header pb-0">
-                        <h3 class="card-title text-black">{{ __('Premium') }}</h3>
-                    </div>
-                    <div class="card-body pt-0">
-                        <ul>
-                            <li>Gatau</li>
-                            <li>Bebas</li>
-                        </ul>
-                        <button class="btn bg-gradient-success price" data-price="premium">Submit</button>
+        </div>
+    </section>
+    <svg xmlns="http://www.w3.org/2000/svg" style="background: rgb(161, 194, 255)" viewBox="0 0 1440 319"><path fill="rgb(247, 247, 247)" fill-opacity="3" d="M0,224L60,229.3C120,235,240,245,360,224C480,203,600,149,720,106.7C840,64,960,32,1080,42.7C1200,53,1320,107,1380,133.3L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
+    <section id="program-bimbel" class="pb-6 pt-4">
+        <div class="container" style="margin-top: 30px;">
+            <h3 class="my-6 text-center">Program Bimbingan Belajar</h3>
+            <div class="row">
+                <div class="col-12 col-md-4 mb-3">
+                    <div class="card">
+                        <div class="card-header text-center pb-0">
+                            <h3 class="card-title">{{ __('Regular') }}</h3>
+                        </div>
+                        <div class="card-body pt-0">
+                            <ul>
+                                <li>Gatau</li>
+                                <li>Bebas</li>
+                            </ul>
+                            <div class="form-group text-center my-0">
+                                <button class="btn bg-gradient-info w-75 price" data-price="regular">Daftar</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-12 col-md-4 mb-3">
-                <div class="card">
-                    <div class="card-header pb-0">
-                        <h3 class="card-title">{{ __('Gold') }}</h3>
+                <div class="col-12 col-md-4 mb-3">
+                    <div class="card">
+                        <div class="card-header text-center pb-0">
+                            <h3 class="card-title text-black">{{ __('Premium') }}</h3>
+                        </div>
+                        <div class="card-body pt-0">
+                            <ul>
+                                <li>Gatau</li>
+                                <li>Bebas</li>
+                            </ul>
+                            <div class="form-group text-center my-0">
+                                <button class="btn bg-gradient-info w-75 price" data-price="premium">Daftar</button>
+                            </div>
+                        </div>
                     </div>
-                    <div class="card-body pt-0">
-                        <ul>
-                            <li>Gatau</li>
-                            <li>Bebas</li>
-                        </ul>
-                        <button class="btn bg-gradient-success price" data-price="gold">Submit</button>
+                </div>
+                <div class="col-12 col-md-4 mb-3">
+                    <div class="card">
+                        <div class="card-header text-center pb-0">
+                            <h3 class="card-title">{{ __('Gold') }}</h3>
+                        </div>
+                        <div class="card-body pt-0">
+                            <ul>
+                                <li>Gatau</li>
+                                <li>Bebas</li>
+                            </ul>
+                            <div class="form-group text-center my-0">
+                                <button class="btn bg-gradient-info w-75 price" data-price="gold">Daftar</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
+    <svg xmlns="http://www.w3.org/2000/svg" style="background: transparent" viewBox="0 0 1440 319"><path fill="rgb(165, 171, 255)" fill-opacity="1" d="M0,128L60,144C120,160,240,192,360,176C480,160,600,96,720,90.7C840,85,960,139,1080,160C1200,181,1320,171,1380,165.3L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
+    <section id="testimonials" class="py-6" style="background: rgb(165, 171, 255)">
+        <div class="container">
+            <h3 class="text-center mb-6">Testimoni</h3>
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <div class="card mb-3 border-secondary" style="border-bottom: 3px solid;">
+                        <div class="card-body">
+                            <div class="row no-gutters">
+                                <div class="col-3">
+                                    <img src="{{ asset('vendor/soft-ui/img/team-1.jpg') }}" style="max-width: 100%; border-radius: 50%" srcset="">
+                                </div>
+                                <div class="col-9">
+                                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro corrupti voluptatum maiores inventore? Consequuntur, laudantium dolores excepturi deleniti quasi quia, iure quaerat, vel nihil repellat temporibus quos consequatur necessitatibus facere omnis optio nemo quae unde sint possimus eligendi.</p>
+                                    <h6 class="mb-0 pb-0">Alexandra Graham Bell</h6>
+                                    <p class="mt-0 pt-0">Alumni STAN 2020</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="card mb-3 border-secondary" style="border-bottom: 3px solid;">
+                        <div class="card-body">
+                            <div class="row no-gutters">
+                                <div class="col-3">
+                                    <img src="{{ asset('vendor/soft-ui/img/team-2.jpg') }}" style="max-width: 100%; border-radius: 50%" srcset="">
+                                </div>
+                                <div class="col-9">
+                                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro corrupti voluptatum maiores inventore? Consequuntur, laudantium dolores excepturi deleniti quasi quia, iure quaerat, vel nihil repellat temporibus quos consequatur necessitatibus facere omnis optio nemo quae unde sint possimus eligendi.</p>
+                                    <h6 class="mb-0 pb-0">Lorem, ipsum dolor.</h6>
+                                    <p class="mt-0 pt-0">Alumni STAN 2020</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-    {{-- Modal --}}
-    <div class="modal fade" id="modal-form" tabindex="-1" role="dialog" aria-labelledby="modal-form" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-          <div class="modal-content">
-            <div class="modal-body p-0">
-              <div class="card card-plain">
-                <div class="card-header pb-0 text-left">
-                  <h3 class="font-weight-bolder text-info text-gradient" id="title-modal"></h3>
-                  {{-- <p class="mb-0">Enter your email and password to sign in</p> --}}
-                </div>
-                <div class="card-body">
-                  <form role="form text-left" id="register-form" method="post">
-                    <input type="hidden" name="price">
-                    <div class="form-group">
-                        <label>{{ __('Name') }}</label>
-                        <input type="text" name="name" class="form-control" placeholder="{{ __('Name') }}">
-                        <div class="invalid-feedback"></div>
-                    </div>
-                    <div class="form-group">
-                        <label>{{ __('Phone') }}</label>
-                        <input type="number" name="phone" class="form-control" placeholder="{{ __('Phone') }}">
-                        <div class="invalid-feedback"></div>
-                    </div>
-                    <div class="form-group">
-                        <label>{{ __('Email') }}</label>
-                        <input type="email" name="email" class="form-control" placeholder="{{ __('Email') }}" aria-label="{{ __('Email') }}" aria-describedby="email-addon">
-                        <div class="invalid-feedback"></div>
-                    </div>
-                    <div class="form-group">
-                        <label>{{ __('Dob') }}</label>
-                        <input type="date" name="dob" class="form-control" placeholder="{{ __('Dob') }}">
-                        <div class="invalid-feedback"></div>
-                    </div>
-                    <div class="form-group">
-                        <label>{{ __('Gender') }}</label>
-                        <select name="gender" class="custom-select">
-                            <option value=""></option>
-                            <option value="L">{{ __('Male') }}</option>
-                            <option value="P">{{ __('Female') }}</option>
-                        </select>
-                        <div class="invalid-feedback"></div>
-                    </div>
-                    <div class="form-group">
-                        <label>{{ __('Instance') }}</label>
-                        <input type="text" name="instance" class="form-control" placeholder="{{ __('Instance') }}">
-                        <div class="invalid-feedback"></div>
-                    </div>
-                    <div class="form-group">
-                        <label>{{ __('Password') }}</label>
-                        <div class="input-group">
-                            <input type="password" name="password" class="form-control" placeholder="{{ __('Password') }}" aria-label="{{ __('Password') }}" aria-describedby="password-addon">
-                            <div class="input-group-text show_password" style="cursor: pointer">
-                                <i class="fas fa-eye d-none"></i>
-                                <i class="fas fa-eye-slash"></i>
+                <div class="col-12 col-md-6">
+                    <div class="card mb-3 border-secondary" style="border-bottom: 3px solid;">
+                        <div class="card-body">
+                            <div class="row no-gutters">
+                                <div class="col-3">
+                                    <img src="{{ asset('vendor/soft-ui/img/team-3.jpg') }}" style="max-width: 100%; border-radius: 50%" srcset="">
+                                </div>
+                                <div class="col-9">
+                                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro corrupti voluptatum maiores inventore? Consequuntur, laudantium dolores excepturi deleniti quasi quia, iure quaerat, vel nihil repellat temporibus quos consequatur necessitatibus facere omnis optio nemo quae unde sint possimus eligendi.</p>
+                                    <h6 class="mb-0 pb-0">Lorem ipsum dolor sit amet consectetur adipisicing.</h6>
+                                    <p class="mt-0 pt-0">Alumni STAN 2020</p>
+                                </div>
                             </div>
-                            <div class="invalid-feedback"></div>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label>{{ __('Confirm Password') }}</label>
-                        <div class="input-group">
-                            <input type="password" name="password_confirmation" class="form-control" placeholder="{{ __('Confirm Password') }}" aria-label="{{ __('Confirm Password') }}" aria-describedby="password-addon">
-                            <div class="input-group-text show_password" style="cursor: pointer">
-                                <i class="fas fa-eye d-none"></i>
-                                <i class="fas fa-eye-slash"></i>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="card mb-3 border-secondary" style="border-bottom: 3px solid;">
+                        <div class="card-body">
+                            <div class="row no-gutters">
+                                <div class="col-3">
+                                    <img src="{{ asset('vendor/soft-ui/img/team-4.jpg') }}" style="max-width: 100%; border-radius: 50%" srcset="">
+                                </div>
+                                <div class="col-9">
+                                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro corrupti voluptatum maiores inventore? Consequuntur, laudantium dolores excepturi deleniti quasi quia, iure quaerat, vel nihil repellat temporibus quos consequatur necessitatibus facere omnis optio nemo quae unde sint possimus eligendi.</p>
+                                    <h6 class="mb-0 pb-0">Lorem ipsum dolor sit.</h6>
+                                    <p class="mt-0 pt-0">Alumni STAN 2020</p>
+                                </div>
                             </div>
-                            <div class="invalid-feedback"></div>
                         </div>
                     </div>
-                    <div class="text-center">
-                      <button type="submit" class="btn btn-round bg-gradient-info btn-lg w-100 mt-4 mb-0">{{ __('Register') }}</button>
-                    </div>
-                  </form>
                 </div>
-                <div class="card-footer text-center pt-0 px-lg-2 px-1">
-                  <p class="mb-4 text-sm mx-auto">
-                    {{ __("Have an account?") }}
-                    <a href="{{ route('login') }}" class="text-info text-gradient font-weight-bold">{{ __('Login') }}</a>
-                  </p>
-                </div>
-              </div>
             </div>
-          </div>
         </div>
-      </div>
-    </div>
+    </section>
+    <svg xmlns="http://www.w3.org/2000/svg" style="background: rgb(165, 171, 255)" viewBox="0 0 1440 320"><path fill="rgb(52, 52, 155)" fill-opacity="1" d="M0,224L60,224C120,224,240,224,360,208C480,192,600,160,720,138.7C840,117,960,107,1080,101.3C1200,96,1320,96,1380,96L1440,96L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
 @endsection
-
-@push('js')
-    <script>
-        String.prototype.capitalize = function() {
-            return this.charAt(0).toUpperCase() + this.slice(1);
-        }
-        $('.price').on('click', function(){
-            let price = $(this).data('price');
-            $('input[name=price]').val(price)
-            $('#title-modal').text('Paket '+price.toString().capitalize());
-            $('#modal-form').modal('show')
-        })
-        $('.show_password').on('click',function(){
-            let icon = $(this).children()
-            let eye = $(icon[0]);
-            let eye_slash = $(icon[1]);
-            let input_type = $(this).prev()[0].type
-            $(this).prev()[0].type = input_type == 'password'?'text':'password';
-            eye.toggleClass('d-none')
-            eye_slash.toggleClass('d-none');
-        })
-        $('#register-form').on('submit', function(e){
-            e.preventDefault()
-            let data = $(this).serialize();
-            $.ajax({
-                url: '/api/register',
-                method: 'post',
-                data,
-                success: function(result){
-                    ['name','phone','email','dob','gender','instance','password','password_confirmation'].forEach((v)=>{
-                        $(`input[name=${v}],select[name=${v}]`).val('')
-                    })
-                    $('#modal-form').modal('hide')
-                    let price = result.price.toLocaleString('id', { style: 'currency', currency: 'IDR' });
-                    Swal.fire({
-                        icon: 'success',
-                        title: 'Berhasil terdaftar',
-                        html: `Silahkan melakukan transaksi ke norek <b>0823498712</b> sebesar harga <b>${price}</b>`
-                    })
-                },
-                error: function({responseJSON}){
-                    for(err in responseJSON.errors){
-                        $(`*[name=${err}]`).addClass('is-invalid').parent().find('.invalid-feedback').text(responseJSON.errors[err][0])
-                    }
-                }
-            });
-        })
-        $('input,select').on('change keyup',function(){
-            $(this).removeClass('is-invalid')
-        })
-    </script>
-@endpush

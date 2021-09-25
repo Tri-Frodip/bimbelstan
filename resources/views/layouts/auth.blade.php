@@ -29,13 +29,13 @@ Coded by www.creative-tim.com
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-lg-5 text-center mx-auto">
-                        <h1 class="text-white mb-2 mt-5">
-                            @yield('heading', 'Welcome')
+                        <h1 class="text-white mb-1 mt-5">
+                            @yield('heading', 'Login')
                         </h1>
 
-                        <p class="text-lead text-white">
+                        {{-- <p class="text-lead text-white">
                             @yield('sub-heading', 'Have a nice day!')
-                        </p>
+                        </p> --}}
                     </div>
                 </div>
             </div>

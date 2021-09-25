@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 // Auth::routes(['register'=>false]);
 
 Route::view('/', 'welcome');
+Route::view('/try-out', 'try-out');
 
 //use middleware verified for user has been verify the email
 Route::group(['middleware' => ['auth']], function () {
