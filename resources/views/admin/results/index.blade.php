@@ -109,11 +109,16 @@
                                                     <ul class="list-group">
                                                         @foreach ($user->test_results as $result)
                                                             <li class="list-group-item active">{{ $result->test->test_name }}</li>
-                                                            @foreach (json_decode($result->result, false) as $test => $value)
-                                                                <li class="list-group-item d-flex justify-content-between pl-4">
-                                                                    <span>{{ $test }}</span>
-                                                                    <span class="badge bg-gradient-info">{{ $value }}</span>
-                                                                </li>
+                                                            @foreach (json_decode($result->result, false)->part as $test_name => $total)
+                                                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                                {{ $test_name }}
+                                                                @if ((json_decode($result->result, false)->lulus)->$test_name)
+                                                                    <span class="badge text-right bg-gradient-success">Lulus</span>
+                                                                @else
+                                                                    <span class="badge text-right bg-gradient-danger">Tidak Lulus</span>
+                                                                @endif
+                                                                <span class="badge bg-gradient-success">{{ $total }}</span>
+                                                            </li>
                                                             @endforeach
                                                             <li class="list-group-item d-flex justify-content-between pl-3">
                                                                 <b>{{ __('Total') }}</b>

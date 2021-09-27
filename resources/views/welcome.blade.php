@@ -22,7 +22,7 @@
                 <div class="row">
                     <div class="col-lg-7 text-center mx-auto">
                         <div>
-                            <img src="{{ asset('logo-no-bg.png') }}" class="w-30 py-3" alt="{{ __('FortifySoftUi') }}">
+                            <img src="{{ asset('logo-no-bg.png') }}" class="w-60 py-3" alt="{{ __('FortifySoftUi') }}">
                         </div>
                         <h1 class="text-secondary pt-5 mt-n5">
                             {{ __('Web Ujian CPNS') }}
@@ -58,7 +58,7 @@
                     <div class="accordion" id="accordionExample">
                         <div class="accordion-item shadow bg-white mb-2">
                           <h2 class="accordion-header" id="headingOne">
-                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            <button class="accordion-button font-weight-bold fs-4" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                               Accordion Item #1
                             </button>
                           </h2>
@@ -70,7 +70,7 @@
                         </div>
                         <div class="accordion-item shadow bg-white mb-2">
                           <h2 class="accordion-header" id="headingTwo">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            <button class="accordion-button font-weight-bold fs-4 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                               Accordion Item #2
                             </button>
                           </h2>
@@ -82,7 +82,7 @@
                         </div>
                         <div class="accordion-item shadow bg-white mb-2">
                           <h2 class="accordion-header" id="headingThree">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            <button class="accordion-button font-weight-bold fs-4 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                               Accordion Item #3
                             </button>
                           </h2>
@@ -98,7 +98,7 @@
                     <div class="accordion" id="accordionExample2">
                         <div class="accordion-item shadow bg-white mb-2">
                           <h2 class="accordion-header" id="headingOne">
-                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne2" aria-expanded="true" aria-controls="collapseOne2">
+                            <button class="accordion-button font-weight-bold fs-4" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne2" aria-expanded="true" aria-controls="collapseOne2">
                               Accordion Item #1
                             </button>
                           </h2>
@@ -110,7 +110,7 @@
                         </div>
                         <div class="accordion-item shadow bg-white mb-2">
                           <h2 class="accordion-header" id="headingTwo">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo2" aria-expanded="false" aria-controls="collapseTwo2">
+                            <button class="accordion-button font-weight-bold fs-4 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo2" aria-expanded="false" aria-controls="collapseTwo2">
                               Accordion Item #2
                             </button>
                           </h2>
@@ -122,7 +122,7 @@
                         </div>
                         <div class="accordion-item shadow bg-white mb-2">
                           <h2 class="accordion-header" id="headingThree">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree3" aria-expanded="false" aria-controls="collapseThree3">
+                            <button class="accordion-button font-weight-bold fs-4 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree3" aria-expanded="false" aria-controls="collapseThree3">
                               Accordion Item #3
                             </button>
                           </h2>
@@ -134,16 +134,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <h4 class="text-center mt-4 mb-3">Penempatan Lulus</h4>
-            <div class="text-center table-responsive">
-                <img src="{{ asset('penempatan-lulus/myob.png') }}" class="logo-penempatan" alt="" srcset="">
-                <img src="{{ asset('penempatan-lulus/belimo.png') }}" class="logo-penempatan" alt="" srcset="">
-                <img src="{{ asset('penempatan-lulus/LifeGroups.png') }}" class="logo-penempatan" alt="" srcset="">
-                <br class="d-none d-md-block">
-                <img src="{{ asset('penempatan-lulus/lilly.png') }}" class="logo-penempatan" alt="" srcset="">
-                <img src="{{ asset('penempatan-lulus/citrus.png') }}" class="logo-penempatan" alt="Citrus Logo 2d - Citrus Logo Png Clipart@pikpng.com">
-                <img src="{{ asset('penempatan-lulus/Trustly.png') }}" class="logo-penempatan" alt="" srcset="">
             </div>
             <h4 class="text-center my-5">Instansi Penampung Lulusan STAN</h4>
             <div class="row">
@@ -212,10 +202,9 @@
     </section>
     <svg xmlns="http://www.w3.org/2000/svg" style="background: #ececec" viewBox="0 0 1440 318"><path fill="#fff" fill-opacity="1" d="M0,288L60,272C120,256,240,224,360,224C480,224,600,256,720,256C840,256,960,224,1080,208C1200,192,1320,192,1380,192L1440,192L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
     <section id="profile" class="bg-white">
-        <div class="container text-center">
-            <h3 class="mb-0">Profil Kami</h3>
-            <img src="{{ asset('logo-no-bg.png') }}" height="130" alt="" class="align-center">
-            <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam blanditiis doloribus veritatis ducimus fuga iure ipsa nesciunt quia voluptas voluptates dolores nemo ea voluptate ut nihil, eum quae porro veniam. Ipsa fuga mollitia aspernatur consequuntur quod. Quam amet laborum ab adipisci, fugiat atque sed accusamus eligendi soluta cupiditate iusto ea commodi! Quos eligendi consequuntur ratione quisquam, odit nisi necessitatibus odio facere voluptatem minima possimus amet suscipit quae mollitia vel soluta autem sequi consectetur excepturi non dolore molestiae pariatur assumenda! Praesentium optio reprehenderit repellendus sequi amet, cum rerum! Reiciendis harum sunt iusto nemo officia blanditiis eligendi voluptate voluptatum esse laboriosam. Architecto!</p>
+        <div class="container">
+            <h3 class="mb-0 text-center">Profil Kami</h3>
+            <p class="mb-0 text-justify mt-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam blanditiis doloribus veritatis ducimus fuga iure ipsa nesciunt quia voluptas voluptates dolores nemo ea voluptate ut nihil, eum quae porro veniam. Ipsa fuga mollitia aspernatur consequuntur quod. Quam amet laborum ab adipisci, fugiat atque sed accusamus eligendi soluta cupiditate iusto ea commodi! Quos eligendi consequuntur ratione quisquam, odit nisi necessitatibus odio facere voluptatem minima possimus amet suscipit quae mollitia vel soluta autem sequi consectetur excepturi non dolore molestiae pariatur assumenda! Praesentium optio reprehenderit repellendus sequi amet, cum rerum! Reiciendis harum sunt iusto nemo officia blanditiis eligendi voluptate voluptatum esse laboriosam. Architecto!</p>
         </div>
     </section>
     <svg xmlns="http://www.w3.org/2000/svg" style="background: white" viewBox="0 0 1440 318"><path fill="rgb(168, 181, 207)" fill-opacity="1" d="M0,288L48,272C96,256,192,224,288,197.3C384,171,480,149,576,165.3C672,181,768,235,864,250.7C960,267,1056,245,1152,250.7C1248,256,1344,288,1392,304L1440,320L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
@@ -262,7 +251,7 @@
                                 <li>Bebas</li>
                             </ul>
                             <div class="form-group text-center my-0">
-                                <a href="/paket-bimbel/silver" class="btn bg-gradient-info w-75 price" data-price="premium">Daftar</a>
+                                <a href="/paket-bimbel/silver" class="btn bg-gradient-info w-100 price" data-price="premium">Daftar</a>
                             </div>
                         </div>
                     </div>
@@ -278,7 +267,7 @@
                                 <li>Bebas</li>
                             </ul>
                             <div class="form-group text-center my-0">
-                                <a href="/paket-bimbel/gold" class="btn bg-gradient-info w-75 price" data-price="gold">Daftar</a>
+                                <a href="/paket-bimbel/gold" class="btn bg-gradient-info w-100 price" data-price="gold">Daftar</a>
                             </div>
                         </div>
                     </div>

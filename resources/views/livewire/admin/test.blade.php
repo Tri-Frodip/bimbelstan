@@ -70,6 +70,7 @@
                             @else
                                 <input type="number" class="form-control form-control-sm px-3" style="max-width: 150px" {{ $part['is_random']?'':'disabled' }} wire:model='parts.{{ $i }}.total_question' placeholder="{{ __('Question Total') }}">
                             @endif
+                            <input type="number" min="0" max="100" name="kkm[{{ $i }}]" wire:model='parts.{{ $i }}.kkm' placeholder="KKM" style="max-width: 65px" class="px-2 form-control @error('parts.{{ $i }}.kkm') is-invalid @enderror">
                         </div>
                     </div>
                     @if (!$part['is_random']&&$part['part_id']!=0)

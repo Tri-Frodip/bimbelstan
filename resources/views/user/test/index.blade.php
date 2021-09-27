@@ -80,9 +80,14 @@
                                         <td colspan="5" class="hiddenRow">
                                             <div class="accordian-body collapse" id="result{{ $loop->iteration }}">
                                                 <ul class="list-group">
-                                                    @foreach (json_decode($test->getMyResult()->result??'[]', false) as $test_name => $total)
+                                                    @foreach (json_decode($test->getMyResult()->result??'[]', false)->part??[] as $test_name => $total)
                                                     <li class="list-group-item d-flex justify-content-between align-items-center">
                                                         {{ $test_name }}
+                                                        @if ((json_decode($test->getMyResult()->result??'[]', false)->lulus??[])->$test_name)
+                                                            <span class="badge text-right bg-gradient-success">Lulus</span>
+                                                        @else
+                                                            <span class="badge text-right bg-gradient-danger">Tidak Lulus</span>
+                                                        @endif
                                                         <span class="badge bg-gradient-success">{{ $total }}</span>
                                                     </li>
                                                     @endforeach

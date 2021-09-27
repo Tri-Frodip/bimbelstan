@@ -31,7 +31,8 @@ class Test extends Component
                 'part_id'=>$part_id,
                 'total_question'=>0,
                 'is_random'=>false,
-                'questions'=> $ids
+                'questions'=> $ids,
+                'kkm'=>$part->pluck('kkm')->max()
             ];
         }
         if($test->exists){
@@ -46,7 +47,8 @@ class Test extends Component
             'part_id'=>0,
             'total_question'=>'',
             'is_random'=>false,
-            'questions'=>[]
+            'questions'=>[],
+            'kkm'=>''
         ];
     }
 
@@ -75,8 +77,9 @@ class Test extends Component
             'parts'=>'array|min:1',
             'parts.*.part_id'=>'required',
             'parts.*.questions'=>'array|min:5',
+            'parts.*.kkm' => 'required|numeric|digits_between:0,100'
         ]);
-
+        $validate['kkm'] = collect($validate['parts'])->pluck('kkm')->sum();
         $test_id = ModelsTest::create($validate)->id;
         foreach($validate['parts'] as $part){
             foreach($part['questions'] as $id => $question){
@@ -85,6 +88,7 @@ class Test extends Component
                         'test_id'=>$test_id,
                         'part_id'=>$part['part_id'],
                         'question_id'=>$id,
+                        'kkm'=>$part['kkm']
                     ]);
                 }
             }
@@ -113,7 +117,9 @@ class Test extends Component
             'parts'=>'array|min:1',
             'parts.*.part_id'=>'required',
             'parts.*.questions'=>'array|min:5',
+            'parts.*.kkm' => 'required|numeric|digits_between:0,100'
         ]);
+        $validate['kkm'] = collect($validate['parts'])->pluck('kkm')->sum();
         $test->update($validate);
         foreach($validate['parts'] as $part){
             $deleted_id = array_keys($part['questions'],false);
@@ -123,7 +129,8 @@ class Test extends Component
                     TestGroup::firstOrCreate([
                         'test_id'=>$test->id,
                         'part_id'=>$part['part_id'],
-                        'question_id'=>$id
+                        'question_id'=>$id,
+                        'kkm'=>$part['kkm']
                     ]);
                 }
             }

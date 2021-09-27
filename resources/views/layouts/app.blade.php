@@ -105,7 +105,7 @@
             </a>
         </div>
         @endcannot
-        @include('partials.dashboard.fixed')
+        {{-- @include('partials.dashboard.fixed') --}}
         @include('partials.dashboard.scripts')
         @livewireScripts
         <script>

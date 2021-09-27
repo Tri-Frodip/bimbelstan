@@ -41,12 +41,14 @@ class Test extends Component
         $total_correct = 0;
         foreach($this->answers as $part_id => $answers){
             $part = Part::find($part_id);
-            $part_count[$part->name] = 0;
+            $part_count['part'][$part->name] = 0;
             foreach($answers as $answer){
                 $is_correct = Choice::find($answer)->is_correct;
                 $total_correct += $is_correct;
-                $part_count[$part->name] += $is_correct;
+                $part_count['part'][$part->name] += $is_correct;
             }
+            $kkm_part = TestGroup::where('part_id', $part_id)->first();
+            $part_count['lulus'][$part->name] = $part_count['part'][$part->name]>$kkm_part->pluck('kkm')->max();
         }
         TestResult::create([
             'user_id'=>auth()->user()->id,
