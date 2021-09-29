@@ -55,7 +55,12 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('export-users', [\App\Http\Controllers\UsersController::class, 'export']);
     });
     Route::prefix('/admin')->as('admin.')->middleware('role:admin')->group(function(){
-        Route::resource('question', \App\Http\Controllers\QuestionController::class)->only('index','create','edit');
+        Route::resource('question', \App\Http\Controllers\QuestionController::class)->only('index', 'show');
+        Route::get('/question/{part}/create', [\App\Http\Controllers\QuestionController::class, 'create'])->name('question.create');
+        Route::post('/question/{part}/store', [\App\Http\Controllers\QuestionController::class, 'store'])->name('question.store');
+        Route::get('/question/{part}/{question}/edit', [\App\Http\Controllers\QuestionController::class, 'edit'])->name('question.edit');
+        Route::put('/question/{part}/{question}/update', [\App\Http\Controllers\QuestionController::class, 'update'])->name('question.update');
+
         Route::view('/part', 'admin.part.index')->name('part.index');
         Route::resource('/test', \App\Http\Controllers\TestController::class)->except('store','show','update');
         Route::delete('reset-test/{user}', [\App\Http\Controllers\UserTestController::class, 'reset']);
@@ -66,4 +71,9 @@ Route::group(['middleware' => ['auth']], function () {
         Route::resource('test', \App\Http\Controllers\UserTestController::class)->only('index','show','update');
         Route::get('start-test', [\App\Http\Controllers\UserTestController::class, 'test'])->name('test.start')->middleware('test');
     });
+});
+
+
+Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
+    \UniSharp\LaravelFilemanager\Lfm::routes();
 });

@@ -53,7 +53,7 @@
                                     <span class="badge bg-gradient-success" id="done">{{ __('Done') }}</span>
                                 </span>
                             </p>
-                            <h6>{{ $question->question->question }}</h6>
+                            <h6>{!! $question->question->question !!}</h6>
                             <div class="choice-interaction">
                                 <span class="prompt">
                                     @foreach ($question->question->choices as $a => $choice)

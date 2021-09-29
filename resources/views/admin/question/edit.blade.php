@@ -12,7 +12,7 @@
 
 @section('title')
     <h6 class="font-weight-bolder mb-0">
-        {{ __('Add - Remove Question') }}
+        {{ __('Add New Question') }}
     </h6>
 @endsection
 
@@ -28,7 +28,20 @@
             @endif
 
             <div class="col-12">
-                @livewire('admin.question', ['part' => $question])
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            {{ __('Part').' '.$part->name }}
+                        </h3>
+                    </div>
+                    <div class="card-body">
+                        <form action="{{ route('admin.question.update', ['part'=>$part, 'question'=>$question]) }}" method="post">
+                            @csrf
+                            @include('admin.question._form', ['question'=>$question])
+                            <button class="btn bg-gradient-success">{{ __('Add') }}</button>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

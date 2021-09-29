@@ -28,7 +28,20 @@
             @endif
 
             <div class="col-12">
-                @livewire('admin.part')
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            {{ __('Part').' '.$part->name }}
+                        </h3>
+                    </div>
+                    <div class="card-body">
+                        <form action="{{ route('admin.question.store', ['part'=>$part]) }}" method="post">
+                            @csrf
+                            @include('admin.question._form')
+                            <button class="btn bg-gradient-success">{{ __('Add') }}</button>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

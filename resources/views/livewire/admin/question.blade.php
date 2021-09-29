@@ -19,7 +19,8 @@
                         <div class="accordion-body text-sm opacity-8">
                             <div class="d-flex justify-content-between">
                                 <h4>{{ __("The Questions") }}</h4>
-                                <button class="btn btn-sm bg-gradient-primary" wire:click.prevent="addQuestion">{{ __('Add Question') }}</button>
+                                {{-- <button class="btn btn-sm bg-gradient-primary" wire:click.prevent="addQuestion">{{ __('Add Question') }}</button> --}}
+                                <a class="btn btn-sm bg-gradient-primary" href="{{ route('admin.question.create', ['part'=>$part]) }}">{{ __('Add Question') }}</a>
                             </div>
                             <div class="table-responsive">
                                 <table class="table table-vcenter">
@@ -36,10 +37,11 @@
                                             <tr>
                                                 <td data-toggle="collapse" data-target="#question{{ $loop->iteration }}" class="accordion-toggle"><i class="fas fa-eye"></i></td>
                                                 <td>{{ $loop->iteration }}</td>
-                                                <td>{{ \Str::limit($question->question, 80) }}</td>
+                                                <td>{{ \Str::limit(strip_tags($question->question), 80) }}</td>
                                                 <td class="text-center">
                                                     <button wire:click.prevent='delete({{ $question->id }})' class="badge bg-gradient-danger">{{ __('Delete') }}</button>
-                                                    <button wire:click.prevent='edit({{ $question->id }})' class="badge bg-gradient-info">{{ __('Edit') }}</button>
+                                                    {{-- <button wire:click.prevent='edit({{ $question->id }})' class="badge bg-gradient-info">{{ __('Edit') }}</button> --}}
+                                                    <a href="{{ route('admin.question.edit', ['part'=>$part,'question'=>$question]) }}" class="badge bg-gradient-info">{{ __('Edit') }}</a>
                                                 </td>
                                             </tr>
                                             <tr>

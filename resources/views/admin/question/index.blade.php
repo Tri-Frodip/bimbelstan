@@ -57,7 +57,7 @@
                                                 <td class="px-3">{{ __(ucfirst($part->format_validation)) }}</td>
                                                 <td class="px-3"><b>{{ $part->questions->count() }}</b> {{ __('Questions') }}</td>
                                                 <td class="px-3">
-                                                    <a href="{{ route('admin.question.edit', $part->id) }}" class="btn bg-gradient-success">
+                                                    <a href="{{ route('admin.question.show', $part->id) }}" class="btn bg-gradient-success">
                                                         {{ __('Add Question') }}
                                                     </a>
                                                 </td>
