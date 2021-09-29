@@ -63,7 +63,7 @@
                                         </div>
                                         <div class="choice-content">
                                             <div class="item_options">
-                                                <label for="choice{{ $i.$a }}">{{ $choice->text }}</label>
+                                                <label for="choice{{ $i.$a }}">{!! $choice->text !!}</label>
                                             </div>
                                         </div>
                                     </div>
