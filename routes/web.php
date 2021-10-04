@@ -1,10 +1,33 @@
 <?php
 
-use Illuminate\Support\Facades\App;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Xendit\Xendit;
 
-// Auth::routes(['register'=>false]);
+Route::view('/register', 'auth.register');
+
+// Route::get('/xendit', function(){
+//     $key = env('XENDIT_API', 'asa');
+//     Xendit::setApiKey($key);
+//     $params = [
+//         "external_id" => "VA_fixed-12341234",
+//         "expected_amount"=>50000,
+//         "is_single_use" => true,
+//         "bank_code" => "BRI",
+//         "name" => "Jang Ebe",
+//     ];
+
+//     $createVA = \Xendit\VirtualAccounts::create($params);
+//     return response()->json($createVA);
+// });
+// Route::get('/get-fixed-account/{id}', function($id){
+//     $key = env('XENDIT_API', 'asa');
+//     Xendit::setApiKey($key);
+//     // $getVA = \Xendit\VirtualAccounts::retrieve($id);
+//     // return response()->json($getVA);
+//     $getFVAPayment = \Xendit\VirtualAccounts::getFVAPayment($id);
+//     return response()->json($getFVAPayment);
+// });
+
 
 Route::view('/', 'welcome');
 Route::view('/try-out', 'try-out');

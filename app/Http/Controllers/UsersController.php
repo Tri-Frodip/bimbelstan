@@ -6,9 +6,11 @@ use App\Actions\Fortify\ChangeUserPassword;
 use App\Actions\Fortify\CreateNewUser;
 use App\Actions\Fortify\UpdateUserProfileInformation;
 use App\Exports\UsersExport;
+use App\Models\Payment;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
+use Xendit\Xendit;
 
 class UsersController extends Controller
 {
@@ -53,7 +55,7 @@ class UsersController extends Controller
     public function register(Request $request)
     {
         $validate = $request->validate([
-            'price'=>'required|in:regular,premium,gold',
+            'price'=>'required|in:normal,regular,premium,gold',
             'name'=>'required|string',
             'phone'=>'required|numeric|digits_between:9,14',
             'email'=>'required|email|unique:users,email',
@@ -64,13 +66,32 @@ class UsersController extends Controller
             'password_confirmation'=>'required'
         ]);
         $validate['password'] = bcrypt($validate['password']);
-        User::create($validate);
+        $user = User::create($validate);
         $prices = [
+            'normal'=>0,
             'regular'=>20000,
             'premium'=>50000,
             'gold'=>100000
         ];
-        return response()->json(['price'=>$prices[$validate['price']]]);
+        $key = env('XENDIT_API');
+        Xendit::setApiKey($key);
+        $params = [
+            "is_closed" => true,
+            "external_id" => "VA_fixed-".time(),
+            "expected_amount"=>$prices[$validate['price']],
+            "is_single_use" => true,
+            "bank_code" => "BRI",
+            "name" => $validate['name'],
+        ];
+
+        $norek = "";
+        if($validate['price']!='normal'){
+            $createVA = \Xendit\VirtualAccounts::create($params);
+            $createVA = array_merge($createVA, ['user_id' => $user->id]);
+            Payment::create($createVA);
+            $norek = $createVA['account_number'];
+        }
+        return response()->json(['price'=>$prices[$validate['price']], 'norek' => $norek]);
     }
 
     /**

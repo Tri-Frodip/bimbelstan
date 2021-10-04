@@ -7,6 +7,7 @@
     "require": {
         "php": "^7.3|^8.0",
         "barryvdh/laravel-dompdf": "^0.9.0",
+        "doctrine/dbal": "^3.1",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
         "laravel/framework": "^8.54",
@@ -16,7 +17,8 @@
         "livewire/livewire": "^2.5",
         "maatwebsite/excel": "^3.1",
         "mcamara/laravel-localization": "^1.6",
-        "unisharp/laravel-filemanager": "^2.2"
+        "unisharp/laravel-filemanager": "^2.2",
+        "xendit/xendit-php": "^2.14"
     },
     "require-dev": {
         "akukoder/fortify-soft-ui": "^1.0",

@@ -193,7 +193,7 @@
                     Swal.fire({
                         icon: 'success',
                         title: 'Berhasil terdaftar',
-                        html: `Silahkan melakukan transaksi ke norek <b>0823498712</b> sebesar harga <b>${price}</b>`
+                        html: `Silahkan melakukan transaksi ke norek <b>${result.norek}</b> sebesar harga <b>${price}</b>`
                     })
                 },
                 error: function({responseJSON}){

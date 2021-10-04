@@ -81,6 +81,7 @@
                                                         {{ __('You') }}
                                                     </span>
                                                 @endif
+                                                {!! $user->status !!}
                                             </td>
                                             <td class="px-3">{{ $user->email }}</td>
                                             <td class="px-3">{{ $user->phone }}</td>

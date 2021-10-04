@@ -22,7 +22,8 @@ class UserTestController extends Controller
     public function index()
     {
         if(!Gate::allows('test')){
-            if(auth()->user()->price=='regular') $count = 2;
+            if(auth()->user()->price=='normal') $count = 1;
+            elseif(auth()->user()->price=='regular') $count = 2;
             else if(auth()->user()->price=='premium') $count = 4;
             else $count = 6;
             $result_test = TestResult::where('user_id', auth()->user()->id)->pluck('test_id')->toArray();
@@ -42,7 +43,8 @@ class UserTestController extends Controller
     public function show(Test $test)
     {
         if(!Gate::allows('test')){
-            if(auth()->user()->price=='regular') $count = 2;
+            if(auth()->user()->price=='normal') $count = 1;
+            elseif(auth()->user()->price=='regular') $count = 2;
             else if(auth()->user()->price=='premium') $count = 4;
             else $count = 6;
             $result_test = TestResult::where('user_id', auth()->user()->id)->pluck('test_id');
@@ -63,7 +65,8 @@ class UserTestController extends Controller
      */
     public function update(Request $request, Test $test)
     {
-        if(auth()->user()->price=='regular') $count = 2;
+        if(auth()->user()->price=='normal') $count = 1;
+        elseif(auth()->user()->price=='regular') $count = 2;
         else if(auth()->user()->price=='premium') $count = 4;
         else $count = 6;
         $tests=Test::all()->take($count)->pluck('id');

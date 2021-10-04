@@ -63,4 +63,19 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->hasMany(TestResult::class);
     }
+
+    public function payment()
+    {
+        return $this->hasOne(Payment::class);
+    }
+
+    public function getStatusAttribute()
+    {
+        if($this->payment){
+            $status = ['PENDING'=>'warning','PAID'=>'success'];
+            $s = $this->payment->status;
+            return '<span class="badge bg-gradient-'.$status[$s].'">'.$s.'</span>';
+        }
+        return '';
+    }
 }

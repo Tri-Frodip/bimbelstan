@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Payment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -18,4 +19,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('register',[\App\Http\Controllers\UsersController::class, 'register']);
+Route::post('register',[\App\Http\Controllers\UsersController::class, 'register'])->name('register');
+Route::post('/payments', function(Request $request){
+    $payment = Payment::find($request->callback_virtual_account_id)->update(['status'=>'PAID']);
+    return response()->json($payment)->setStatusCode(200);
+});
