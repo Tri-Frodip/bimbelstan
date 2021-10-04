@@ -92,6 +92,13 @@
             @include('partials.dashboard.navbar')
 
             <div id="app">
+                @if (auth()->user()->payment && auth()->user()->payment->status == 'PENDING')
+                    <div class="container">
+                        <div class="alert bg-warning">
+                            Anda belum melakukan transaksi. Silahkan lakukan transaksi terlebih dahulu ke nomer rekening <b>{{ auth()->user()->payment->account_number }}</b> dengan nominal <b>Rp. {{ number_format(auth()->user()->payment->expected_amount,0,',','.') }}</b>
+                        </div>
+                    </div>
+                @endif
                 @yield('content')
 
                 @include('partials.dashboard.footer')
